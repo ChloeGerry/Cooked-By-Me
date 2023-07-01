@@ -1,5 +1,5 @@
 const Error = () => {
-  return <div>error</div>;
+  return <div>Cette page n'existe pas...</div>;
 };
 
 export default Error;
