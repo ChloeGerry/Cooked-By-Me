@@ -5,14 +5,16 @@ import {
   Input,
   CardWrapper,
 } from './planner.style';
-import { recipes, Recipe } from '../../recipesData';
+import { recipes, RecipeType } from '../../recipesData';
 import { useState } from 'react';
 import CardPreview from '../../components/CardPreview';
 import Template from '../../components/Template';
 
 const Planner = () => {
   const [isRecipeVisible, setRecipeVisible] = useState<boolean>(false);
-  const [filteredRecipes, updateFilteredRecipes] = useState<Array<Recipe>>([]);
+  const [filteredRecipes, updateFilteredRecipes] = useState<Array<RecipeType>>(
+    []
+  );
 
   const handleInput = (event: React.FormEvent<HTMLInputElement>): void => {
     const target = event.target as HTMLInputElement;

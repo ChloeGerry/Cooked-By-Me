@@ -1,4 +1,4 @@
-export type Recipe = {
+export type RecipeType = {
   title: string;
   id: number;
   image: string;
@@ -14,7 +14,7 @@ export type Recipe = {
 
 const path = '/assets/';
 
-export const recipes: Recipe[] = [
+export const recipes: RecipeType[] = [
   {
     title: 'Boulettes italiennes',
     id: 1,
