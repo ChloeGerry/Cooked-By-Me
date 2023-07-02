@@ -6,7 +6,7 @@ const Header = () => {
     <HeaderStyled>
       <Link to="/">
         <Logo
-          src="../Cooked-By-Me/assets/CBM-logo.png"
+          src="./Cooked-By-Me/assets/CBM-logo.png"
           alt="Cooked by me logo"
         />
         {/* <Logo src="../assets/CBM-logo.png" alt="Cooked by me logo" /> */}
