@@ -12,7 +12,9 @@ export type RecipeType = {
   type: string;
 };
 
-const path = `${process.env.PUBLIC_URL + '/assets/'}`;
+const publicPath = process.env.PUBLIC_URL;
+
+const path = `${publicPath + '/assets/'}`;
 
 export const recipes: RecipeType[] = [
   {
