@@ -12,12 +12,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter basename="Cooked-By-Me">
       <GlobalStyle />
       <Header />
       <App />
       <Footer />
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
