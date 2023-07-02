@@ -27,11 +27,11 @@ const Recipe = () => {
     <main>
       {filteredRecipe[0]?.type === 'salty' ? (
         <Banner
-          bannerPicture={process.env.PUBLIC_URL + '/assets/salty-banner.jpg'}
+          bannerPicture={`${process.env.PUBLIC_URL}/assets/salty-banner.jpg`}
         />
       ) : (
         <Banner
-          bannerPicture={process.env.PUBLIC_URL + '/assets/sweet-banner.jpg'}
+          bannerPicture={`${process.env.PUBLIC_URL}/assets/sweet-banner.jpg`}
         />
       )}
       {filteredRecipe?.map(

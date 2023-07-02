@@ -6,7 +6,7 @@ const Header = () => {
     <HeaderStyled>
       <Link to="/">
         <Logo
-          src={process.env.PUBLIC_URL + '/assets/CBM-logo.png'}
+          src={`${process.env.PUBLIC_URL}/assets/CBM-logo.png`}
           alt="Cooked by me logo"
         />
       </Link>

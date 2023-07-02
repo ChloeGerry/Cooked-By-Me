@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <main>
       <Banner
-        bannerPicture={process.env.PUBLIC_URL + '/assets/home-banner.jpg'}
+        bannerPicture={`${process.env.PUBLIC_URL}/assets/home-banner.jpg`}
       />
       <HomeSection>
         <h2>Créez simplement vos menus</h2>
