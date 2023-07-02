@@ -4,7 +4,9 @@ import { HomeSection, HomeParagraph, LinkStyled } from './home.style';
 const Home = () => {
   return (
     <main>
-      <Banner bannerPicture="../assets/home-banner.jpg" />
+      <Banner
+        bannerPicture={process.env.PUBLIC_URL + '/assets/home-banner.jpg'}
+      />
       <HomeSection>
         <h2>Créez simplement vos menus</h2>
         <HomeParagraph>Sélectionnez les plats qui vous plaisent.</HomeParagraph>

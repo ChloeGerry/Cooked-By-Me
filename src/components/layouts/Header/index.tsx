@@ -9,7 +9,6 @@ const Header = () => {
           src={process.env.PUBLIC_URL + '/assets/CBM-logo.png'}
           alt="Cooked by me logo"
         />
-        {/* <Logo src="../assets/CBM-logo.png" alt="Cooked by me logo" /> */}
       </Link>
       <TitleWrapper>
         <HeaderTitle>Cooked by me</HeaderTitle>
