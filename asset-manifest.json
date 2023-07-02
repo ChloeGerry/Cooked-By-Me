@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "./static/js/main.1556d501.js",
-    "index.html": "./index.html",
-    "main.1556d501.js.map": "./static/js/main.1556d501.js.map"
+    "main.js": "/Cooked-By-Me/static/js/main.91594628.js",
+    "index.html": "/Cooked-By-Me/index.html",
+    "main.91594628.js.map": "/Cooked-By-Me/static/js/main.91594628.js.map"
   },
   "entrypoints": [
-    "static/js/main.1556d501.js"
+    "static/js/main.91594628.js"
   ]
 }
