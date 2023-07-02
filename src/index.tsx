@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { BrowserRouter, HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from './style/globalStyle';
 import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="Cooked-By-Me">
+    <BrowserRouter>
       <GlobalStyle />
       <Header />
       <App />
