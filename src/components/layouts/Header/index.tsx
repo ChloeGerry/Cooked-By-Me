@@ -5,11 +5,10 @@ const Header = () => {
   return (
     <HeaderStyled>
       <Link to="/">
-        <Logo src="/assets/CBM-logo.png" alt="Cooked by me logo" />
-        {/* <Logo
+        <Logo
           src={process.env.PUBLIC_URL + '/assets/CBM-logo.png'}
           alt="Cooked by me logo"
-        /> */}
+        />
         {/* <Logo src="../assets/CBM-logo.png" alt="Cooked by me logo" /> */}
       </Link>
       <TitleWrapper>
