@@ -3,7 +3,9 @@ import {
   fontSizeSmall,
   fontSizeMedium,
   secondaryColor,
+  tertiaryColor,
 } from '../../style/variables';
+import { NavLink } from 'react-router-dom';
 
 export const CardSection = styled.section`
   display: flex;
@@ -31,4 +33,21 @@ export const CardWrapper = styled.div`
   display: flex;
   flex-direction: row;
   margin: 64px auto;
+  align-items: center;
+`;
+
+export const PaginationWrapper = styled.nav`
+  display: flex;
+  justify-content: center;
+`;
+
+export const Pagination = styled(NavLink)`
+  margin-left: 16px;
+  font-size: ${fontSizeSmall};
+  padding: 5px 10px;
+
+  &.isSelected {
+    background-color: ${tertiaryColor};
+    border-radius: 50%;
+  }
 `;
