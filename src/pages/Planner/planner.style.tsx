@@ -48,6 +48,6 @@ export const Pagination = styled(NavLink)`
 
   &.isSelected {
     background-color: ${tertiaryColor};
-    border-radius: 50%;
+    border-radius: 55%;
   }
 `;
