@@ -18,17 +18,16 @@ const Planner = () => {
   );
 
   const recipePerPage: number = 5;
-
   let totalPages: number = 0;
-
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const handleInput = (event: React.FormEvent<HTMLInputElement>): void => {
     const target = event.target as HTMLInputElement;
     updateFilteredRecipes([]);
+    setCurrentPage(1);
 
     if (target) {
-      const matchingRecipes = recipes.filter((recipe) =>
+      const matchingRecipes: Array<RecipeType> = recipes.filter((recipe) =>
         recipe.title.toLowerCase().match(target.value)
       );
 
@@ -38,21 +37,19 @@ const Planner = () => {
     }
   };
 
-  const slidedFilteredRecipes = filteredRecipes.slice(
+  const displayRecipes = filteredRecipes.length ? filteredRecipes : recipes;
+
+  const slidedFilteredRecipes: Array<RecipeType> = displayRecipes.slice(
     (currentPage - 1) * recipePerPage,
     currentPage * recipePerPage
   );
 
-  const slicesRecipes = recipes.slice(
+  const slicesRecipes: Array<RecipeType> = displayRecipes.slice(
     (currentPage - 1) * recipePerPage,
     currentPage * recipePerPage
   );
 
-  if (slidedFilteredRecipes.length) {
-    totalPages = Math.ceil(filteredRecipes.length / recipePerPage);
-  } else if (slicesRecipes.length) {
-    totalPages = Math.ceil(recipes.length / recipePerPage);
-  }
+  totalPages = Math.ceil(displayRecipes.length / recipePerPage);
 
   return (
     <main>

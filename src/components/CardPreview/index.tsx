@@ -1,5 +1,9 @@
-import { Link } from 'react-router-dom';
-import { CardStyled, CardTitle, CardImage } from './cardPreview.style';
+import {
+  CardStyled,
+  CardTitle,
+  CardImage,
+  CardLink,
+} from './cardPreview.style';
 import Ratings from '../Ratings';
 
 interface Props {
@@ -11,13 +15,13 @@ interface Props {
 
 const CardPreview = ({ id, title, image, rate }: Props) => {
   return (
-    <Link to={`/recipe/${id}/${title}`}>
-      <CardStyled>
+    <CardStyled>
+      <CardLink to={`/recipe/${id}/${title}`}>
         <CardTitle>{title}</CardTitle>
         <CardImage src={image} alt="Recette" />
         <Ratings rate={rate} />
-      </CardStyled>
-    </Link>
+      </CardLink>
+    </CardStyled>
   );
 };
 

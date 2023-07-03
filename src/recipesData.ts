@@ -13,7 +13,6 @@ export type RecipeType = {
 };
 
 const path = `${process.env.PUBLIC_URL}/assets/`;
-// const path = `/${process.env.PUBLIC_URL}/assets/`;
 
 export const recipes: RecipeType[] = [
   {
