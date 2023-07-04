@@ -1,8 +1,10 @@
 import Banner from '../../components/Banner';
 import CardRecipe from '../../components/CardRecipe';
 import { useParams } from 'react-router-dom';
-import { recipes, RecipeType } from '../../recipesData';
-import { useState, useEffect } from 'react';
+import { RecipeType } from '../../type';
+import { useState, useEffect, useContext } from 'react';
+import { RecipesContext, RecipeContextType } from '../../context';
+import { imagesPath } from '../Planner';
 
 type recipeId = {
   id: string;
@@ -12,17 +14,18 @@ const Recipe = () => {
   const recipeId = useParams<recipeId>();
   const [filteredRecipe, setFilteredRecipe] = useState<Array<RecipeType>>([]);
 
+  const { recipesData } = useContext<RecipeContextType>(RecipesContext);
+  const recipes: Array<RecipeType> | undefined = recipesData?.recipes;
+
   useEffect(() => {
     setFilteredRecipe([]);
-    const choosenRecipe = recipes.filter(
-      (recipe) => recipeId.id === recipe.id.toString()
+    const choosenRecipe = recipes?.filter(
+      (recipe: RecipeType) => recipeId.id === recipe.id.toString()
     );
-
-    if (choosenRecipe.length) {
+    if (choosenRecipe?.length) {
       setFilteredRecipe(choosenRecipe);
     }
-  }, [recipeId.id]);
-
+  }, [recipeId.id, recipes]);
   return (
     <main>
       {filteredRecipe[0]?.type === 'salty' ? (
@@ -52,7 +55,7 @@ const Recipe = () => {
               id={id}
               key={id}
               title={title}
-              image={image}
+              image={imagesPath + image}
               preparation={preparation}
               cooking={cooking}
               rest={rest}

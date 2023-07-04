@@ -1,5 +1,7 @@
+import Loader from '../../components/layouts/Loader';
+
 const Error = () => {
-  return <div>Cette page n'existe pas...</div>;
+  return <Loader />;
 };
 
 export default Error;

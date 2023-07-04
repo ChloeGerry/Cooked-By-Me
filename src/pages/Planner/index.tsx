@@ -7,16 +7,26 @@ import {
   PaginationWrapper,
   Pagination,
 } from './planner.style';
-import { recipes, RecipeType } from '../../recipesData';
-import { useState } from 'react';
+import { RecipeType } from '../../type';
+import { useState, useContext } from 'react';
 import CardPreview from '../../components/CardPreview';
 import Template from '../../components/Template';
+import { RecipesContext, RecipeContextType } from '../../context';
+import Loader from '../../components/layouts/Loader';
+
+export const imagesPath: string = `${process.env.PUBLIC_URL}/assets/`;
 
 const Planner = () => {
+  const { recipesData } = useContext<RecipeContextType>(RecipesContext);
+
+  if (!recipesData) {
+    <Loader />;
+  }
+
+  const recipes: Array<RecipeType> | undefined = recipesData?.recipes;
   const [filteredRecipes, updateFilteredRecipes] = useState<Array<RecipeType>>(
     []
   );
-
   const recipePerPage: number = 5;
   let totalPages: number = 0;
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -25,32 +35,32 @@ const Planner = () => {
     const target = event.target as HTMLInputElement;
     updateFilteredRecipes([]);
     setCurrentPage(1);
-
     if (target) {
-      const matchingRecipes: Array<RecipeType> = recipes.filter((recipe) =>
-        recipe.title.toLowerCase().match(target.value)
+      const matchingRecipes: Array<RecipeType> | undefined = recipes?.filter(
+        (recipe) => recipe.title.toLowerCase().match(target.value)
       );
-
-      if (matchingRecipes.length && target.value) {
+      if (matchingRecipes?.length && target.value) {
         updateFilteredRecipes(matchingRecipes);
       }
     }
   };
 
-  const displayRecipes = filteredRecipes.length ? filteredRecipes : recipes;
+  const displayRecipes: RecipeType[] | undefined = filteredRecipes?.length
+    ? filteredRecipes
+    : recipes;
 
-  const slidedFilteredRecipes: Array<RecipeType> = displayRecipes.slice(
+  const slidedFilteredRecipes: Array<RecipeType> | undefined =
+    displayRecipes?.slice(
+      (currentPage - 1) * recipePerPage,
+      currentPage * recipePerPage
+    );
+
+  const slicesRecipes: Array<RecipeType> | undefined = displayRecipes?.slice(
     (currentPage - 1) * recipePerPage,
     currentPage * recipePerPage
   );
 
-  const slicesRecipes: Array<RecipeType> = displayRecipes.slice(
-    (currentPage - 1) * recipePerPage,
-    currentPage * recipePerPage
-  );
-
-  totalPages = Math.ceil(displayRecipes.length / recipePerPage);
-
+  totalPages = Math.ceil(displayRecipes!.length / recipePerPage);
   return (
     <main>
       <CardSection>
@@ -66,7 +76,7 @@ const Planner = () => {
                     id={id}
                     key={id}
                     title={title}
-                    image={image}
+                    image={imagesPath + image}
                     rate={rate}
                   />
                 );
@@ -77,7 +87,7 @@ const Planner = () => {
                     id={id}
                     key={id}
                     title={title}
-                    image={image}
+                    image={imagesPath + image}
                     rate={rate}
                   />
                 );

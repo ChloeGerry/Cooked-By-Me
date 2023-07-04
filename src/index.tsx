@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from './style/globalStyle';
 import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
+import RecipesContextProvider from './context';
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -12,12 +13,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/Cooked-By-Me">
-      <GlobalStyle />
-      <Header />
-      <App />
-      <Footer />
-    </BrowserRouter>
+    <RecipesContextProvider>
+      <BrowserRouter basename="/Cooked-By-Me">
+        <GlobalStyle />
+        <Header />
+        <App />
+        <Footer />
+      </BrowserRouter>
+    </RecipesContextProvider>
   </React.StrictMode>
 );
 
