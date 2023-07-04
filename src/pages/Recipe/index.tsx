@@ -5,6 +5,7 @@ import { RecipeType } from '../../type';
 import { useState, useEffect, useContext } from 'react';
 import { RecipesContext, RecipeContextType } from '../../context';
 import { imagesPath } from '../Planner';
+import Loader from '../../components/layouts/Loader';
 
 type recipeId = {
   id: string;
@@ -18,6 +19,9 @@ const Recipe = () => {
   const recipes: Array<RecipeType> | undefined = recipesData?.recipes;
 
   useEffect(() => {
+    if (!recipesData) {
+      return;
+    }
     setFilteredRecipe([]);
     const choosenRecipe = recipes?.filter(
       (recipe: RecipeType) => recipeId.id === recipe.id.toString()
@@ -26,6 +30,11 @@ const Recipe = () => {
       setFilteredRecipe(choosenRecipe);
     }
   }, [recipeId.id, recipes]);
+
+  if (!recipesData) {
+    return <Loader />;
+  }
+
   return (
     <main>
       {filteredRecipe[0]?.type === 'salty' ? (

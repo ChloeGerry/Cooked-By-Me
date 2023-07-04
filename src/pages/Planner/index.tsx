@@ -8,7 +8,7 @@ import {
   Pagination,
 } from './planner.style';
 import { RecipeType } from '../../type';
-import { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import CardPreview from '../../components/CardPreview';
 import Template from '../../components/Template';
 import { RecipesContext, RecipeContextType } from '../../context';
@@ -17,19 +17,20 @@ import Loader from '../../components/layouts/Loader';
 export const imagesPath: string = `${process.env.PUBLIC_URL}/assets/`;
 
 const Planner = () => {
-  const { recipesData } = useContext<RecipeContextType>(RecipesContext);
-
-  if (!recipesData) {
-    <Loader />;
-  }
-
-  const recipes: Array<RecipeType> | undefined = recipesData?.recipes;
   const [filteredRecipes, updateFilteredRecipes] = useState<Array<RecipeType>>(
     []
   );
   const recipePerPage: number = 5;
   let totalPages: number = 0;
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [choosenRecipe, setChoosenRecipe] = useState<Array<RecipeType>>([]);
+  const { recipesData } = useContext<RecipeContextType>(RecipesContext);
+
+  if (!recipesData) {
+    return <Loader />;
+  }
+
+  const recipes: Array<RecipeType> | undefined = recipesData?.recipes;
 
   const handleInput = (event: React.FormEvent<HTMLInputElement>): void => {
     const target = event.target as HTMLInputElement;
@@ -61,6 +62,25 @@ const Planner = () => {
   );
 
   totalPages = Math.ceil(displayRecipes!.length / recipePerPage);
+
+  const handleOnDrag = (
+    event: React.DragEvent,
+    choosenRecipeType: RecipeType
+  ) => {
+    event.dataTransfer.setData('text/plain', JSON.stringify(choosenRecipeType));
+  };
+
+  const handleOnDrop = (event: React.DragEvent) => {
+    const choosenRecipeType = JSON.parse(
+      event.dataTransfer.getData('text/plain')
+    ) as RecipeType;
+    setChoosenRecipe([...choosenRecipe, choosenRecipeType]);
+  };
+
+  const handleDragOver = (event: React.DragEvent) => {
+    event.preventDefault();
+  };
+
   return (
     <main>
       <CardSection>
@@ -73,6 +93,10 @@ const Planner = () => {
             ? slidedFilteredRecipes?.map(({ title, id, image, rate }) => {
                 return (
                   <CardPreview
+                    draggable
+                    onDragStart={(event, choosenRecipeType) =>
+                      handleOnDrag(event, choosenRecipeType)
+                    }
                     id={id}
                     key={id}
                     title={title}
@@ -84,6 +108,10 @@ const Planner = () => {
             : slicesRecipes?.map(({ title, id, image, rate }) => {
                 return (
                   <CardPreview
+                    draggable
+                    onDragStart={(event, choosenRecipeType) =>
+                      handleOnDrag(event, choosenRecipeType)
+                    }
                     id={id}
                     key={id}
                     title={title}
@@ -108,7 +136,19 @@ const Planner = () => {
           })}
         </PaginationWrapper>
       </CardSection>
-      <Template />
+      <Template onDrop={handleOnDrop} onDragOver={handleDragOver}>
+        {choosenRecipe?.map(({ id, title, image, rate }) => {
+          return (
+            <CardPreview
+              id={id}
+              key={id}
+              title={title}
+              image={image}
+              rate={rate}
+            />
+          );
+        })}
+      </Template>
     </main>
   );
 };

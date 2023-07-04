@@ -5,7 +5,13 @@ import {
   TemplateCard,
 } from './template.style';
 
-const Template = () => {
+interface Props {
+  onDrop: (event: React.DragEvent) => void;
+  onDragOver: (event: React.DragEvent) => void;
+  children: React.ReactNode;
+}
+
+const Template = ({ onDrop, onDragOver, children }: Props) => {
   const days = [
     'Lundi',
     'Mardi',
@@ -21,10 +27,12 @@ const Template = () => {
       <TemplateTitle>Semaine 1</TemplateTitle>
       <TemplateWraper>
         {days.map((day) => (
-          <TemplateCard key={day}>
+          <TemplateCard key={day} onDrop={onDrop} onDragOver={onDragOver}>
             <h3>{day}</h3>
             <h4>Déjeuner</h4>
+            {children}
             <h4>Dîner</h4>
+            {children}
           </TemplateCard>
         ))}
       </TemplateWraper>

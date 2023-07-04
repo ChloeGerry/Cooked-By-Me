@@ -16,6 +16,7 @@ export const TemplateTitle = styled.h2`
 export const TemplateWraper = styled.div`
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 `;
 
 export const TemplateCard = styled.article`
