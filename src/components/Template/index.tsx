@@ -3,15 +3,14 @@ import {
   TemplateTitle,
   TemplateWraper,
   TemplateCard,
+  TemplateRecipeWrapper,
 } from './template.style';
 
 interface Props {
-  onDrop: (event: React.DragEvent) => void;
-  onDragOver: (event: React.DragEvent) => void;
   children: React.ReactNode;
 }
 
-const Template = ({ onDrop, onDragOver, children }: Props) => {
+const Template = ({ children }: Props) => {
   const days = [
     'Lundi',
     'Mardi',
@@ -27,12 +26,16 @@ const Template = ({ onDrop, onDragOver, children }: Props) => {
       <TemplateTitle>Semaine 1</TemplateTitle>
       <TemplateWraper>
         {days.map((day) => (
-          <TemplateCard key={day} onDrop={onDrop} onDragOver={onDragOver}>
+          <TemplateCard key={day}>
             <h3>{day}</h3>
-            <h4>Déjeuner</h4>
-            {children}
-            <h4>Dîner</h4>
-            {children}
+            <TemplateRecipeWrapper>
+              <h4>Déjeuner :</h4>
+              {children}
+            </TemplateRecipeWrapper>
+            <TemplateRecipeWrapper>
+              <h4>Dîner :</h4>
+              {children}
+            </TemplateRecipeWrapper>
           </TemplateCard>
         ))}
       </TemplateWraper>

@@ -1,5 +1,6 @@
 import Banner from '../../components/Banner';
-import { HomeSection, HomeParagraph, LinkStyled } from './home.style';
+import { HomeSection, HomeParagraph } from './home.style';
+import { LinkStyled } from '../../components/ButtonLink/buttonLink.style';
 
 const Home = () => {
   return (
@@ -16,7 +17,8 @@ const Home = () => {
         <HomeParagraph>
           Plus besoin de réfléchir à ce que vous allez manger !
         </HomeParagraph>
-        <LinkStyled to="/planner">Créer votre template</LinkStyled>
+        <LinkStyled to="/catalog">Consultez le catalogue</LinkStyled>
+        <LinkStyled to="/planner">Créez votre template</LinkStyled>
       </HomeSection>
     </main>
   );
