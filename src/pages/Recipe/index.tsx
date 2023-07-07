@@ -14,7 +14,6 @@ type recipeId = {
 const Recipe = () => {
   const recipeId = useParams<recipeId>();
   const [filteredRecipe, setFilteredRecipe] = useState<Array<RecipeType>>([]);
-
   const { recipesData } = useContext<RecipeContextType>(RecipesContext);
   const recipes: Array<RecipeType> | undefined = recipesData?.recipes;
 

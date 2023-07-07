@@ -17,14 +17,13 @@ interface Props {
   title: string;
   id: number;
   image: string;
-  preparation?: string;
+  preparation: string;
   cooking?: string;
   rest?: string;
-  portions?: string;
-  ingredients?: Array<string>;
-  steps?: Array<string>;
+  portions: string;
+  ingredients: Array<string>;
+  steps: Array<string>;
   rate: number;
-  type?: string;
 }
 
 const CardRecipe = ({
@@ -50,8 +49,8 @@ const CardRecipe = ({
           <RecipeImage src={image} alt="Recette" />
           <RecipeInformations>
             <Text title="Temps de préparation :" text={preparation} />
-            <Text title="Temps de cuisson :" text={cooking} />
-            <Text title="Temps de repos :" text={rest} />
+            {cooking && <Text title="Temps de cuisson :" text={cooking} />}
+            {rest && <Text title="Temps de repos :" text={rest} />}
             <Text title="Nombre de portion :" text={portions} />
           </RecipeInformations>
           <RecipeInformations>
