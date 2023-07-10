@@ -1,9 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   secondaryColor,
   tertiaryColor,
   borderRadiusSmall,
 } from '../../style/variables';
+
+interface TemplateRecipeWrapperProps {
+  hideBorder?: boolean;
+}
 
 export const TemplateStyled = styled.section`
   border: 1px solid ${secondaryColor};
@@ -21,6 +25,8 @@ export const TemplateWraper = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  gap: 24px;
+  padding: 32px;
 `;
 
 export const TemplateCard = styled.article`
@@ -30,12 +36,23 @@ export const TemplateCard = styled.article`
   margin-bottom: 32px;
 `;
 
-export const TemplateRecipeWrapper = styled.div`
+export const TemplateRecipeWrapper = styled.div<TemplateRecipeWrapperProps>`
   display: flex;
   justify-content: center;
   align-items: baseline;
-  border: 1px solid ${tertiaryColor};
-  border-radius: 5px;
-  padding: 0 16px 16px 16px;
+  padding: 0 16px 32px 16px;
   margin-bottom: 24px;
+  max-width: 355px;
+  flex-wrap: wrap;
+  ${(props) =>
+    !props.hideBorder &&
+    css`
+      border-bottom: 1px solid ${secondaryColor};
+    `}
 `;
+
+export const TemplateSubtitle = styled.h4`
+  margin-right: 8px;
+`;
+
+//IStyledComponent

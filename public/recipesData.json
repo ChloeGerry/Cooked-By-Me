@@ -168,10 +168,46 @@
           "Lavez le riz à l'eau froide jusqu'à ce que l'eau qui s'écoule soit claire. Mettez ensuite le riz dans une casserole avec les 32cl d'eau et portez à ébullition pendant 2min. Couvrez puis baissez le feu pour laisser cuire pendant 12min. Une fois ce temps écoulé, coupez le feu et laissez le riz dans l'eau chaude encore 10min sans retirer le couvercle.",
           "Mélangez le vinaigre, le sirop d'agave et le sel ensemble jusqu'à ce que le sel soit dissout. Versez ce mélange dans le riz encore chaud et remuez délicatement. Débarassez le riz dans un plat pour qu'il tiédisse plus rapidement.",
           "Pendant ce temps, ôtez les pépins des concombres et coupez-le en bâtonnets. Dénoyautez l'avocat et coupez-le en lamelles. Rassemblez ensuite tous les ingrédients pour les avoir à portée de main. Prévoyez aussi un bol d'eau tiède poiur humidifier vos mains et éviter que le riz ne colle.",
-          "Déposez une feuille nori sur u tapis de bambou ou en silicone et étalez une fine couche de riz sur les 3/4. Saupoudrez le riz de graines de sésames et déposez la gerniture près du bord qui se trouve vers vous ainsi qu'une bande de bâtonets de concombre. Recouvrez de lamelles d'avocat et finissez par une généreuse couche de carottes râpées.",
+          "Déposez une feuille nori sur un tapis de bambou ou en silicone et étalez une fine couche de riz sur les 3/4. Saupoudrez le riz de graines de sésames et déposez la gerniture près du bord qui se trouve vers vous ainsi qu'une bande de bâtonets de concombre. Recouvrez de lamelles d'avocat et finissez par une généreuse couche de carottes râpées.",
           "Roullez la feuille en tenant fermemant l'extréminté afin d'enfermer la garniture. Coupez le rouleau en 8 tronçons de taille égale en humidifiant régulièrement la alme de votre couteau. Servez les makis accompagnés de sauce soja."
         ],
         "rate": 4,
+        "type": "salty"
+      },
+      {
+        "title": "Galette de pomme de terre fourrées",
+        "id": 8,
+        "image": "galettes-pdt.jpg",
+        "preparation": "20min",
+        "portions": "10 pièces",
+        "cooking": "50min",
+        "ingredients": [
+          "1 kg de Pommes de Terre",
+          "120g de Farine",
+          "sel, poivre",
+          "1 petite Courgette",
+          " 1 petit Poivron Rouge",
+          "1/2 Oignon",
+          "125g Tofu Nautre Extra Ferme",
+          "4 càs de Sauce Tomate",
+          "2 càs de Sauce Soja Sucrée",
+          "1 gousse d'ail préssée",
+          "2 càs de Persil Haché",
+          "1 bon filet d'Huile d'Olive",
+          "100g de Yaourt de Soja Nature",
+          "1 càs Ciboulette ciselée",
+          "1/2 càc d'Oignon en poudre",
+          "1/2 càc d'Ail en poudre",
+          "Zèste d'1/2 Citron"
+        ],
+        "steps": [
+          "Laver, peler et tailler les pommes de terre en cubes. Placer dans une grande casserole remplie d'eau froide. Après la première ébullition, laisser cuire 15 à 20 min ou jusqu'à ce qu'elles soient tendres.",
+          "Pendant ce temps là, préparer la farce. Couper le poivron, la courgette et l'oignon en petits cubes. Ajouter le tout dans une poêle anti-adhésive à feu vif avec le tofu finement émietté à la main. Cuire environ 5 min en mélangeant régulièrement. Une fois que les légumes ont relâché l'eau, ajouter un bon filet d'huile d'olive et poursuivre la cuisson une dizaine de minutes à feu moyen. Quand tout commence à dorer et caraméliser, ajouter la sauce tomate, la sauce soja, la gousse d'ail pressée et poursuivre la cuisson quelques minutes. Goûter pour ajuster l'assaisonnement, ajouter le persil et réserver.",
+          "Une fois cuites, égoutter les pommes de terre, les réduire en purée et laisser refroidir complètement. Incorporer la farine, le sel, le poivre et mélanger à la fourchette puis avec les mains jusqu'à l'obtention d'une pâte homogène, légèrement collante mais qui se tient.",
+          "Pour le montage, travailler en permanence avec des mains humidifiées (la pâte sera collante, c'est normal). Placer environ 3 càs de pâte dans la main en l'aplatissant, déposer 1 càs bombée de farce au centre, recouvrir avec 1 càs de pâte et former les galettes avec les mains en prenant le soin de seller les côtés pour que la farce ne s'échappe pas durant la cuisson.",
+          "Faire dorer 4 à 5 min de chaque côté dans une poêle légèrement huilée à feu moyen, puis les disposer au fur et à mesure sur une plaque recouverte de papier de cuisson. Enfourner à 180° pendant 10 min avant de servir avec une salade verte en accompagnement."
+        ],
+        "rate": 5,
         "type": "salty"
       }
     ]

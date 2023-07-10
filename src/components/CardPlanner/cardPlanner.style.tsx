@@ -1,7 +1,15 @@
 import styled from 'styled-components';
+import { borderRadiusSmall, tertiaryColor } from '../../style/variables';
+import { Link } from 'react-router-dom';
 
 export const CardPlannerWrapper = styled.div`
-  margin-left: 16px;
+  padding: 8px 8px 16px 8px;
+  border: 1px solid ${tertiaryColor};
+  border-radius: ${borderRadiusSmall};
+  min-width: 150px;
+`;
+
+export const LinkStyled = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,32 +1,22 @@
-import { imagesPath } from '../../pages/Planner';
-import { CardPlannerImage, CardPlannerWrapper } from './cardPlanner.style';
-import { Link } from 'react-router-dom';
-import { RecipeType } from '../../type';
+import {
+  CardPlannerImage,
+  CardPlannerWrapper,
+  LinkStyled,
+} from './cardPlanner.style';
 
-// interface Props {
-//   title: string;
-//   image: string;
-// id: number;
-// }
+interface Props {
+  title: string;
+  image: string;
+  id: number;
+}
 
-// const CardPlanner = ({ title, image, id }: Props) => {
-//   return (
-//     <article>
-/* <Link to={`/recipe/${id}/${title}}`>
-  // <title>{title}</title>
-  // <img src={image} alt="Recette" />
-</Link>; */
-//     </article>
-//   );
-// };
-
-const CardPlanner = () => {
+const CardPlanner = ({ title, image, id }: Props) => {
   return (
     <CardPlannerWrapper>
-      <Link to="#">
-        <h3>Titre de la recette</h3>
-        <CardPlannerImage src={`${imagesPath}/makis.jpg`} alt="Recette" />
-      </Link>
+      <LinkStyled to={`/recipe/${id}/${title}`}>
+        <h3>{title}</h3>
+        <CardPlannerImage src={image} alt="Recette" />
+      </LinkStyled>
     </CardPlannerWrapper>
   );
 };

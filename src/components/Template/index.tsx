@@ -4,6 +4,7 @@ import {
   TemplateWraper,
   TemplateCard,
   TemplateRecipeWrapper,
+  TemplateSubtitle,
 } from './template.style';
 
 interface Props {
@@ -29,11 +30,11 @@ const Template = ({ children }: Props) => {
           <TemplateCard key={day}>
             <h3>{day}</h3>
             <TemplateRecipeWrapper>
-              <h4>Déjeuner :</h4>
+              <TemplateSubtitle>Déjeuner :</TemplateSubtitle>
               {children}
             </TemplateRecipeWrapper>
-            <TemplateRecipeWrapper>
-              <h4>Dîner :</h4>
+            <TemplateRecipeWrapper hideBorder={true}>
+              <TemplateSubtitle>Dîner :</TemplateSubtitle>
               {children}
             </TemplateRecipeWrapper>
           </TemplateCard>

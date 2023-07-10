@@ -1,17 +1,33 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import {
   fontSizeSmall,
   fontSizeMedium,
   secondaryColor,
   tertiaryColor,
+  borderRadiusMedium,
 } from '../../style/variables';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+const slide = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+`;
+
+export const CatalogMain = styled.main`
+  margin-top: 56px;
+`;
 
 export const CatalogSection = styled.section`
   display: flex;
   flex-direction: column;
-  margin-top: 56px;
 `;
 
 export const InputWrapper = styled.div`
@@ -35,6 +51,26 @@ export const CatalogWrapper = styled.div`
   flex-direction: row;
   margin: 64px auto;
   align-items: center;
+  gap: 32px;
+`;
+
+export const CardWrapper = styled.article`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid ${secondaryColor};
+  border-radius: ${borderRadiusMedium};
+  transition: box-shadow 200ms ease-in-out;
+  animation: ${slide} 200ms ease-in-out;
+
+  &:hover {
+    box-shadow: 5px 5px 5px ${tertiaryColor};
+  }
+`;
+
+export const CardLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  padding: 0px 16px 16px 16px;
 `;
 
 export const PaginationWrapper = styled.nav`

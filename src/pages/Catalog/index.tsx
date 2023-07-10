@@ -1,4 +1,5 @@
 import {
+  CatalogMain,
   CatalogSection,
   InputWrapper,
   Label,
@@ -6,6 +7,8 @@ import {
   CatalogWrapper,
   PaginationWrapper,
   Pagination,
+  CardLink,
+  CardWrapper,
 } from './catalog.style';
 import { RecipeType } from '../../type';
 import React, { useState, useContext } from 'react';
@@ -62,7 +65,7 @@ const Catalog = () => {
   totalPages = Math.ceil(displayRecipes!.length / recipePerPage);
 
   return (
-    <main>
+    <CatalogMain>
       <CatalogSection>
         <InputWrapper>
           <Label>Trouvez vos plats :</Label>
@@ -72,24 +75,30 @@ const Catalog = () => {
           {filteredRecipes.length
             ? slidedFilteredRecipes?.map(({ title, id, image, rate }) => {
                 return (
-                  <CardPreview
-                    id={id}
-                    key={id}
-                    title={title}
-                    image={imagesPath + image}
-                    rate={rate}
-                  />
+                  <CardWrapper key={id}>
+                    <CardLink to={`/recipe/${id}/${title}`}>
+                      <CardPreview
+                        id={id}
+                        title={title}
+                        image={imagesPath + image}
+                        rate={rate}
+                      />
+                    </CardLink>
+                  </CardWrapper>
                 );
               })
             : slicesRecipes?.map(({ title, id, image, rate }) => {
                 return (
-                  <CardPreview
-                    id={id}
-                    key={id}
-                    title={title}
-                    image={imagesPath + image}
-                    rate={rate}
-                  />
+                  <CardWrapper key={id}>
+                    <CardLink to={`/recipe/${id}/${title}`}>
+                      <CardPreview
+                        id={id}
+                        title={title}
+                        image={imagesPath + image}
+                        rate={rate}
+                      />
+                    </CardLink>
+                  </CardWrapper>
                 );
               })}
         </CatalogWrapper>
@@ -108,7 +117,7 @@ const Catalog = () => {
           })}
         </PaginationWrapper>
       </CatalogSection>
-    </main>
+    </CatalogMain>
   );
 };
 
