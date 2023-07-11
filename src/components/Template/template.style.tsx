@@ -6,7 +6,8 @@ import {
 } from '../../style/variables';
 
 interface TemplateRecipeWrapperProps {
-  hideBorder?: boolean;
+  $hideBorder?: boolean;
+  // hideborder?: string;
 }
 
 export const TemplateStyled = styled.section`
@@ -45,7 +46,8 @@ export const TemplateRecipeWrapper = styled.div<TemplateRecipeWrapperProps>`
   max-width: 355px;
   flex-wrap: wrap;
   ${(props) =>
-    !props.hideBorder &&
+    !props.$hideBorder &&
+    // props.hideborder === 'false' &&
     css`
       border-bottom: 1px solid ${secondaryColor};
     `}

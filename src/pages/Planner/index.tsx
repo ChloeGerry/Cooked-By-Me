@@ -37,6 +37,7 @@ const Planner = () => {
   let totalPages: number = 0;
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [choosenRecipe, setChoosenRecipe] = useState<Array<RecipeType>>([]);
+  const [choosenDay, setChoosenDay] = useState<string>('');
   const { recipesData } = useContext<RecipeContextType>(RecipesContext);
 
   if (!recipesData) {

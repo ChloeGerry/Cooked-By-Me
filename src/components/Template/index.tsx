@@ -9,9 +9,10 @@ import {
 
 interface Props {
   children: React.ReactNode;
+  allDays?: Array<string>;
 }
 
-const Template = ({ children }: Props) => {
+const Template = ({ children, allDays }: Props) => {
   const days = [
     'Lundi',
     'Mardi',
@@ -24,6 +25,7 @@ const Template = ({ children }: Props) => {
 
   return (
     <TemplateStyled>
+      {allDays === days}
       <TemplateTitle>Semaine 1</TemplateTitle>
       <TemplateWraper>
         {days.map((day) => (
@@ -33,7 +35,7 @@ const Template = ({ children }: Props) => {
               <TemplateSubtitle>Déjeuner :</TemplateSubtitle>
               {children}
             </TemplateRecipeWrapper>
-            <TemplateRecipeWrapper hideBorder={true}>
+            <TemplateRecipeWrapper $hideBorder={false}>
               <TemplateSubtitle>Dîner :</TemplateSubtitle>
               {children}
             </TemplateRecipeWrapper>

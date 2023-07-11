@@ -3,7 +3,7 @@ import { borderRadiusSmall, tertiaryColor } from '../../style/variables';
 import { Link } from 'react-router-dom';
 
 export const CardPlannerWrapper = styled.div`
-  padding: 8px 8px 16px 8px;
+  padding: 0px 8px 16px 8px;
   border: 1px solid ${tertiaryColor};
   border-radius: ${borderRadiusSmall};
   min-width: 150px;
