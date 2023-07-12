@@ -1,11 +1,12 @@
 import { BannerStyled } from './banner.style';
 
-interface Props {
-  bannerPicture: string;
-}
-
-const Banner = ({ bannerPicture }: Props) => {
-  return <BannerStyled src={bannerPicture} alt="Recette" />;
+const Banner = () => {
+  return (
+    <BannerStyled
+      src={`${process.env.PUBLIC_URL}/assets/banner.jpg`}
+      alt="Recette"
+    />
+  );
 };
 
 export default Banner;

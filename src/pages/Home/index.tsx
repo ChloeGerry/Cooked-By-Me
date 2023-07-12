@@ -5,9 +5,7 @@ import { LinkStyled } from '../../components/ButtonLink/buttonLink.style';
 const Home = () => {
   return (
     <main>
-      <Banner
-        bannerPicture={`${process.env.PUBLIC_URL}/assets/home-banner.jpg`}
-      />
+      <Banner />
       <HomeSection>
         <h2>Créez simplement vos menus</h2>
         <HomeParagraph>Sélectionnez les plats qui vous plaisent.</HomeParagraph>
