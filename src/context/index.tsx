@@ -24,7 +24,7 @@ const RecipesContextProvider = ({ children }: Props) => {
   const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
-    fetch('http://localhost:3000/Cooked-By-Me/recipesData.json')
+    fetch('https://chloegerry.github.io/Cooked-By-Me/recipesData.json')
       .then((response) => response.json())
       .then((data) => {
         return getRecipesData(data);
