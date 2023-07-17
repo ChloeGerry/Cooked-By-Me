@@ -6,7 +6,7 @@ export const CardPlannerWrapper = styled.div`
   padding: 0px 8px 16px 8px;
   border: 1px solid ${tertiaryColor};
   border-radius: ${borderRadiusSmall};
-  min-width: 150px;
+  width: 200px;
 `;
 
 export const LinkStyled = styled(Link)`

@@ -10,7 +10,7 @@ import {
 } from '../Catalog/catalog.style';
 import React, { useState, useContext } from 'react';
 import CardPreview from '../../components/CardPreview';
-import Template from '../../components/Template';
+// import Template from '../../components/Template';
 import Modal from 'react-modal';
 import { RecipesContext, RecipeContextType } from '../../context';
 import Loader from '../../components/layouts/Loader';
@@ -23,12 +23,58 @@ import {
   ChoosenRecipeWrapper,
 } from './planner.style';
 import Button from '../../components/Button';
+import { DAYS } from '../../components/Template';
+import {
+  TemplateStyled,
+  TemplateTitle,
+  TemplateWraper,
+  TemplateCard,
+  TemplateRecipeWrapper,
+  TemplateSubtitle,
+} from '../../components/Template/template.style';
 
 export const imagesPath: string = `${process.env.PUBLIC_URL}/assets/`;
 
 Modal.setAppElement('#root');
 
+interface WeekPlanner {
+  [key: string]: object;
+}
+
 const Planner = () => {
+  const [week, setWeek] = useState<WeekPlanner>({
+    Lundi: {
+      midi: null,
+      soir: null,
+    },
+    Mardi: {
+      midi: null,
+      soir: null,
+    },
+    Mercredi: {
+      midi: null,
+      soir: null,
+    },
+    Jeudi: {
+      midi: null,
+      soir: null,
+    },
+    Vendredi: {
+      midi: null,
+      soir: null,
+    },
+    Samedi: {
+      midi: null,
+      soir: null,
+    },
+    Dimanche: {
+      midi: null,
+      soir: null,
+    },
+  });
+
+  const [choosenDay, setChoosenDay] = useState<string>('');
+  const [choosenMoment, setChoosenMoment] = useState<string>('');
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [filteredRecipes, updateFilteredRecipes] = useState<Array<RecipeType>>(
     []
@@ -37,7 +83,6 @@ const Planner = () => {
   let totalPages: number = 0;
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [choosenRecipe, setChoosenRecipe] = useState<Array<RecipeType>>([]);
-  const [choosenDay, setChoosenDay] = useState<string>('');
   const { recipesData } = useContext<RecipeContextType>(RecipesContext);
 
   if (!recipesData) {
@@ -79,13 +124,36 @@ const Planner = () => {
 
   const addMealToPlanner = (id: number) => {
     // setChoosenRecipe([]);
+    Object.keys(week).forEach((day) => {
+      if (day === choosenDay) {
+        console.log('choosenMoment', choosenMoment);
+        if (choosenMoment === 'Déjeuner') {
+          console.log('if');
+          // setWeek({
+          //   week[day]: {
+          //     midi: id,
+          //     soir: null,
+          //   },
+          // });
+        }
+      }
+    });
+
     slidedRecipes.forEach((slidedRecipe: RecipeType): void => {
       if (slidedRecipe.id === id) {
         setModalIsOpen(false);
         setChoosenRecipe([...choosenRecipe, slidedRecipe]);
+        // localStorage.setItem('newRecipe', JSON.stringify(slidedRecipe));
+        // console.log(
+        //   'localStorageRecipe',
+        //   JSON.parse(localStorage.getItem('newRecipe')!)
+        // );
       }
     });
   };
+
+  // console.log('choosenDay', choosenDay);
+  // console.log('choosenMoment', choosenMoment);
 
   return (
     <main>
@@ -152,25 +220,68 @@ const Planner = () => {
           </PaginationWrapper>
         </CatalogSection>
       </Modal>
-      <Template>
-        <Button onClick={() => setModalIsOpen(true)}>
-          Choisissez votre plat
-        </Button>
-        <ChoosenRecipeWrapper>
-          {choosenRecipe.length
-            ? choosenRecipe?.map(({ id, title, image }) => {
-                return (
-                  <CardPlanner
-                    key={id}
-                    id={id}
-                    title={title}
-                    image={imagesPath + image}
-                  />
-                );
-              })
-            : null}
-        </ChoosenRecipeWrapper>
-      </Template>
+      <TemplateStyled>
+        <TemplateTitle>Semaine 1</TemplateTitle>
+        <TemplateWraper>
+          {DAYS.map((day) => (
+            <TemplateCard key={day}>
+              <h3>{day}</h3>
+              <TemplateRecipeWrapper>
+                <TemplateSubtitle>Déjeuner :</TemplateSubtitle>
+                <Button
+                  onClick={() => {
+                    setChoosenDay(day);
+                    setChoosenMoment('Déjeuner');
+                    return setModalIsOpen(true);
+                  }}
+                >
+                  Choisissez votre plat
+                </Button>
+                <ChoosenRecipeWrapper>
+                  {choosenRecipe.length
+                    ? choosenRecipe?.map(({ id, title, image }) => {
+                        return (
+                          <CardPlanner
+                            key={id}
+                            id={id}
+                            title={title}
+                            image={imagesPath + image}
+                          />
+                        );
+                      })
+                    : null}
+                </ChoosenRecipeWrapper>
+              </TemplateRecipeWrapper>
+              <TemplateRecipeWrapper $hideBorder={true}>
+                <TemplateSubtitle>Dîner :</TemplateSubtitle>
+                <Button
+                  onClick={() => {
+                    setChoosenDay(day);
+                    setChoosenMoment('Dîner');
+                    return setModalIsOpen(true);
+                  }}
+                >
+                  Choisissez votre plat
+                </Button>
+                <ChoosenRecipeWrapper>
+                  {choosenRecipe.length
+                    ? choosenRecipe?.map(({ id, title, image }) => {
+                        return (
+                          <CardPlanner
+                            key={id}
+                            id={id}
+                            title={title}
+                            image={imagesPath + image}
+                          />
+                        );
+                      })
+                    : null}
+                </ChoosenRecipeWrapper>
+              </TemplateRecipeWrapper>
+            </TemplateCard>
+          ))}
+        </TemplateWraper>
+      </TemplateStyled>
     </main>
   );
 };

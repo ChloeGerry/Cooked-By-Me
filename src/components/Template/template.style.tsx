@@ -7,7 +7,6 @@ import {
 
 interface TemplateRecipeWrapperProps {
   $hideBorder?: boolean;
-  // hideborder?: string;
 }
 
 export const TemplateStyled = styled.section`
@@ -47,7 +46,6 @@ export const TemplateRecipeWrapper = styled.div<TemplateRecipeWrapperProps>`
   flex-wrap: wrap;
   ${(props) =>
     !props.$hideBorder &&
-    // props.hideborder === 'false' &&
     css`
       border-bottom: 1px solid ${secondaryColor};
     `}
@@ -56,5 +54,3 @@ export const TemplateRecipeWrapper = styled.div<TemplateRecipeWrapperProps>`
 export const TemplateSubtitle = styled.h4`
   margin-right: 8px;
 `;
-
-//IStyledComponent
