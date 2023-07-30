@@ -12,27 +12,39 @@ import { Link } from 'react-router-dom';
 
 const slide = keyframes`
   0% {
-    opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(300px);
+    opacity: 0.2;
+  }
+  25% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.8;
   }
   100% {
+    transform: translateX(0px);
     opacity: 1;
-    transform: translateX(0%);
   }
-`;
-
-export const CatalogMain = styled.main`
-  margin-top: 56px;
 `;
 
 export const CatalogSection = styled.section`
   display: flex;
   flex-direction: column;
+  margin-top: 40px;
 `;
 
 export const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
 `;
 
 export const Label = styled.label`
@@ -49,9 +61,11 @@ export const Input = styled.input`
 export const CatalogWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 64px auto;
+  margin: 64px 32px;
   align-items: center;
   gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const CardWrapper = styled.article`
@@ -59,8 +73,8 @@ export const CardWrapper = styled.article`
   flex-direction: column;
   border: 1px solid ${secondaryColor};
   border-radius: ${borderRadiusMedium};
+  /* animation: ${slide} 0.3s ease; */
   transition: box-shadow 200ms ease-in-out;
-  animation: ${slide} 200ms ease-in-out;
 
   &:hover {
     box-shadow: 5px 5px 5px ${tertiaryColor};
@@ -76,15 +90,16 @@ export const CardLink = styled(Link)`
 export const PaginationWrapper = styled.nav`
   display: flex;
   justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
 `;
 
 export const Pagination = styled(NavLink)`
-  margin-left: 16px;
   font-size: ${fontSizeSmall};
-  padding: 5px 10px;
+  padding: 6px 12px;
 
   &.isSelected {
     background-color: ${tertiaryColor};
-    border-radius: 55%;
+    border-radius: 50%;
   }
 `;

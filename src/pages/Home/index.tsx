@@ -15,8 +15,24 @@ const Home = () => {
         <HomeParagraph>
           Plus besoin de réfléchir à ce que vous allez manger !
         </HomeParagraph>
-        <LinkStyled to="/catalog">Consultez le catalogue</LinkStyled>
-        <LinkStyled to="/planner">Créez votre template</LinkStyled>
+      </HomeSection>
+      <HomeSection>
+        <h2>Consultez le cataglogue</h2>
+        <HomeParagraph>
+          Ayez une vue d'ensemble sur les recettes proposées.
+        </HomeParagraph>
+        <HomeParagraph>
+          Recettes salées, sucrées, rapides ou plus élaborées.
+        </HomeParagraph>
+        <LinkStyled to="/catalog">Catalogue</LinkStyled>
+      </HomeSection>
+      <HomeSection>
+        <h2>Créez votre template</h2>
+        <HomeParagraph>Contruisez votre template individualisé.</HomeParagraph>
+        <HomeParagraph>
+          Téléchargez-le afin de l'avoir toujours avec vous.
+        </HomeParagraph>
+        <LinkStyled to="/planner">Template</LinkStyled>
       </HomeSection>
     </main>
   );

@@ -3,21 +3,15 @@ import { pictureSizeSmall } from '../../../style/variables';
 
 export const HeaderStyled = styled.header`
   display: flex;
-  align-items: center;
-`;
+  justify-content: flex-start;
+  margin: 32px 0px 32px 32px;
 
-export const HeaderTitle = styled.h1`
-  margin-bottom: 16px;
+  @media (max-width: 768px) {
+    justify-content: center;
+    margin: 32px 0px;
+  }
 `;
 
 export const Logo = styled.img`
   width: ${pictureSizeSmall};
-`;
-
-export const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 70%;
 `;

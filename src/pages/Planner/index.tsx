@@ -123,22 +123,6 @@ const Planner = () => {
   totalPages = Math.ceil(displayRecipes!.length / recipePerPage);
 
   const addMealToPlanner = (id: number) => {
-    // setChoosenRecipe([]);
-    Object.keys(week).forEach((day) => {
-      if (day === choosenDay) {
-        console.log('choosenMoment', choosenMoment);
-        if (choosenMoment === 'Déjeuner') {
-          console.log('if');
-          // setWeek({
-          //   week[day]: {
-          //     midi: id,
-          //     soir: null,
-          //   },
-          // });
-        }
-      }
-    });
-
     slidedRecipes.forEach((slidedRecipe: RecipeType): void => {
       if (slidedRecipe.id === id) {
         setModalIsOpen(false);
@@ -150,6 +134,21 @@ const Planner = () => {
         // );
       }
     });
+
+    // setChoosenRecipe([]);
+    // Object.keys(week).forEach((day) => {
+    //   if (day === choosenDay) {
+    //     console.log('choosenMoment', choosenMoment);
+    //     if (choosenMoment === 'Déjeuner') {
+    //       setWeek({
+    //         week[day]: {
+    //           midi: id,
+    //           soir: null,
+    //         },
+    //       });
+    //     }
+    // }
+    // });
   };
 
   // console.log('choosenDay', choosenDay);

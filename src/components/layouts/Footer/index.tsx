@@ -1,10 +1,9 @@
-import { FooterStyled, FooterLink } from './footer.style';
+import { FooterStyled } from './footer.style';
 
 const Footer = () => {
   return (
     <FooterStyled>
-      <FooterLink to="#">Mentions légales</FooterLink>
-      <FooterLink to="#">Me contacter</FooterLink>
+      <span>© Cooked by me</span>
     </FooterStyled>
   );
 };

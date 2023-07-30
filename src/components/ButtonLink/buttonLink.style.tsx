@@ -11,7 +11,7 @@ export const LinkStyled = styled(Link)`
   margin: 16px 0;
   font-size: ${fontSizeSmall};
   border: 1px solid ${secondaryColor};
-  padding: 8px;
+  padding: 8px 24px;
   border-radius: ${borderRadiusSmall};
   transition: box-shadow 200ms ease-in-out;
 

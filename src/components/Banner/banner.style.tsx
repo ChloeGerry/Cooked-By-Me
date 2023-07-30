@@ -8,4 +8,8 @@ export const BannerStyled = styled.img`
   object-fit: cover;
   margin: auto;
   display: flex;
+
+  @media (max-width: 768px) {
+    max-height: 150px;
+  }
 `;

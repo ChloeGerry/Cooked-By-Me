@@ -6,6 +6,11 @@ export const HomeSection = styled.section`
   flex-direction: column;
   align-items: center;
   margin: 48px 0;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    margin: 48px 24px;
+  }
 `;
 
 export const HomeParagraph = styled.p`

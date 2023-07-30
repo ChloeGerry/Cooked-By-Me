@@ -1,5 +1,4 @@
 import {
-  CatalogMain,
   CatalogSection,
   InputWrapper,
   Label,
@@ -15,6 +14,7 @@ import React, { useState, useContext } from 'react';
 import CardPreview from '../../components/CardPreview';
 import { RecipesContext, RecipeContextType } from '../../context';
 import Loader from '../../components/layouts/Loader';
+import Banner from '../../components/Banner';
 
 export const imagesPath: string = `${process.env.PUBLIC_URL}/assets/`;
 
@@ -65,7 +65,8 @@ const Catalog = () => {
   totalPages = Math.ceil(displayRecipes!.length / recipePerPage);
 
   return (
-    <CatalogMain>
+    <main>
+      <Banner />
       <CatalogSection>
         <InputWrapper>
           <Label>Trouvez vos plats :</Label>
@@ -89,7 +90,7 @@ const Catalog = () => {
               })
             : slicesRecipes?.map(({ title, id, image, rate }) => {
                 return (
-                  <CardWrapper key={id}>
+                  <CardWrapper key={id} className={`card-wrapper-${id}`}>
                     <CardLink to={`/recipe/${id}/${title}`}>
                       <CardPreview
                         id={id}
@@ -117,7 +118,7 @@ const Catalog = () => {
           })}
         </PaginationWrapper>
       </CatalogSection>
-    </CatalogMain>
+    </main>
   );
 };
 
