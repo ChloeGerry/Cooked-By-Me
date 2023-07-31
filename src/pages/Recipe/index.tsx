@@ -7,6 +7,7 @@ import { RecipesContext, RecipeContextType } from '../../context';
 import { imagesPath } from '../Planner';
 import Loader from '../../components/layouts/Loader';
 import { RecipeMain } from './recipe.style';
+import Header from '../../components/layouts/Header';
 
 type recipeId = {
   id: string;
@@ -36,39 +37,42 @@ const Recipe = () => {
   }
 
   return (
-    <RecipeMain>
-      <Banner />
-      {filteredRecipe?.map(
-        ({
-          title,
-          id,
-          image,
-          ingredients,
-          rate,
-          preparation,
-          cooking,
-          rest,
-          portions,
-          steps,
-        }) => {
-          return (
-            <CardRecipe
-              id={id}
-              key={id}
-              title={title}
-              image={imagesPath + image}
-              preparation={preparation}
-              cooking={cooking}
-              rest={rest}
-              portions={portions}
-              ingredients={ingredients}
-              steps={steps}
-              rate={rate}
-            />
-          );
-        }
-      )}
-    </RecipeMain>
+    <>
+      <Header isRecipePageLoaded={true} />
+      <RecipeMain>
+        <Banner />
+        {filteredRecipe?.map(
+          ({
+            title,
+            id,
+            image,
+            ingredients,
+            rate,
+            preparation,
+            cooking,
+            rest,
+            portions,
+            steps,
+          }) => {
+            return (
+              <CardRecipe
+                id={id}
+                key={id}
+                title={title}
+                image={imagesPath + image}
+                preparation={preparation}
+                cooking={cooking}
+                rest={rest}
+                portions={portions}
+                ingredients={ingredients}
+                steps={steps}
+                rate={rate}
+              />
+            );
+          }
+        )}
+      </RecipeMain>
+    </>
   );
 };
 

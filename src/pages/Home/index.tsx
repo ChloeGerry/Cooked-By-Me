@@ -1,6 +1,7 @@
 import Banner from '../../components/Banner';
 import { HomeMain, HomeSection, HomeParagraph } from './home.style';
 import { LinkStyled } from '../../components/ButtonLink/buttonLink.style';
+import Header from '../../components/layouts/Header';
 
 const Home = () => {
   const handleScrollToTop = (): void => {
@@ -9,6 +10,7 @@ const Home = () => {
 
   return (
     <HomeMain>
+      <Header isRecipePageLoaded={false} />
       <Banner />
       <HomeSection>
         <h2>Créez simplement vos menus</h2>

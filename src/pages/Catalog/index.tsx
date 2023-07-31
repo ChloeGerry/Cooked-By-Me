@@ -16,6 +16,7 @@ import CardPreview from '../../components/CardPreview';
 import { RecipesContext, RecipeContextType } from '../../context';
 import Loader from '../../components/layouts/Loader';
 import Banner from '../../components/Banner';
+import Header from '../../components/layouts/Header';
 
 export const imagesPath: string = `${process.env.PUBLIC_URL}/assets/`;
 
@@ -66,60 +67,63 @@ const Catalog = () => {
   totalPages = Math.ceil(displayRecipes!.length / recipePerPage);
 
   return (
-    <CatalogMain>
-      <Banner />
-      <CatalogSection>
-        <InputWrapper>
-          <Label>Trouvez vos plats :</Label>
-          <Input onChange={handleInput} type="search" />
-        </InputWrapper>
-        <CatalogWrapper id="cardRecipe">
-          {filteredRecipes.length
-            ? slidedFilteredRecipes?.map(({ title, id, image, rate }) => {
-                return (
-                  <CardWrapper key={id}>
-                    <CardLink to={`/recipe/${id}/${title}`}>
-                      <CardPreview
-                        id={id}
-                        title={title}
-                        image={imagesPath + image}
-                        rate={rate}
-                      />
-                    </CardLink>
-                  </CardWrapper>
-                );
-              })
-            : slicesRecipes?.map(({ title, id, image, rate }) => {
-                return (
-                  <CardWrapper key={id} className={`card-wrapper-${id}`}>
-                    <CardLink to={`/recipe/${id}/${title}`}>
-                      <CardPreview
-                        id={id}
-                        title={title}
-                        image={imagesPath + image}
-                        rate={rate}
-                      />
-                    </CardLink>
-                  </CardWrapper>
-                );
-              })}
-        </CatalogWrapper>
-        <PaginationWrapper>
-          {[...Array(totalPages)].map((_, index) => {
-            return (
-              <Pagination
-                className={currentPage === index + 1 ? 'isSelected' : ''}
-                key={index}
-                to="#cardRecipe"
-                onClick={() => setCurrentPage(index + 1)}
-              >
-                {index + 1}
-              </Pagination>
-            );
-          })}
-        </PaginationWrapper>
-      </CatalogSection>
-    </CatalogMain>
+    <>
+      <Header isRecipePageLoaded={false} />
+      <CatalogMain>
+        <Banner />
+        <CatalogSection>
+          <InputWrapper>
+            <Label>Trouvez vos plats :</Label>
+            <Input onChange={handleInput} type="search" />
+          </InputWrapper>
+          <CatalogWrapper id="cardRecipe">
+            {filteredRecipes.length
+              ? slidedFilteredRecipes?.map(({ title, id, image, rate }) => {
+                  return (
+                    <CardWrapper key={id}>
+                      <CardLink to={`/recipe/${id}/${title}`}>
+                        <CardPreview
+                          id={id}
+                          title={title}
+                          image={imagesPath + image}
+                          rate={rate}
+                        />
+                      </CardLink>
+                    </CardWrapper>
+                  );
+                })
+              : slicesRecipes?.map(({ title, id, image, rate }) => {
+                  return (
+                    <CardWrapper key={id} className={`card-wrapper-${id}`}>
+                      <CardLink to={`/recipe/${id}/${title}`}>
+                        <CardPreview
+                          id={id}
+                          title={title}
+                          image={imagesPath + image}
+                          rate={rate}
+                        />
+                      </CardLink>
+                    </CardWrapper>
+                  );
+                })}
+          </CatalogWrapper>
+          <PaginationWrapper>
+            {[...Array(totalPages)].map((_, index) => {
+              return (
+                <Pagination
+                  className={currentPage === index + 1 ? 'isSelected' : ''}
+                  key={index}
+                  to="#cardRecipe"
+                  onClick={() => setCurrentPage(index + 1)}
+                >
+                  {index + 1}
+                </Pagination>
+              );
+            })}
+          </PaginationWrapper>
+        </CatalogSection>
+      </CatalogMain>
+    </>
   );
 };
 

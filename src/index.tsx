@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from './style/globalStyle';
-import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
 import RecipesContextProvider from './context';
 // import reportWebVitals from './reportWebVitals';
@@ -16,7 +15,6 @@ root.render(
     <RecipesContextProvider>
       <BrowserRouter basename="/Cooked-By-Me">
         <GlobalStyle />
-        <Header />
         <App />
         <Footer />
       </BrowserRouter>
