@@ -5,10 +5,12 @@ import {
   RecipeTitle,
   RecipeImage,
   RecipeInformationsWrapper,
+  RecipeInformationsContainer,
   RecipeInformations,
   RecipeUl,
   RecipeLi,
   RecipeStepsTitle,
+  RecipeSteps,
 } from './cardRecipe.style';
 import Ratings from '../Ratings';
 import Text from '../Text';
@@ -47,28 +49,30 @@ const CardRecipe = ({
         </RecipeHeader>
         <RecipeInformationsWrapper>
           <RecipeImage src={image} alt="Recette" />
-          <RecipeInformations>
-            <Text title="Temps de préparation :" text={preparation} />
-            {cooking && <Text title="Temps de cuisson :" text={cooking} />}
-            {rest && <Text title="Temps de repos :" text={rest} />}
-            <Text title="Nombre de portion :" text={portions} />
-          </RecipeInformations>
-          <RecipeInformations>
-            <Text title="Ingrédients :" />
-            <RecipeUl>
-              {ingredients?.map((ingredient, index) => {
-                return <RecipeLi key={index}>{ingredient}</RecipeLi>;
-              })}
-            </RecipeUl>
-          </RecipeInformations>
+          <RecipeInformationsContainer>
+            <RecipeInformations>
+              <Text title="Temps de préparation :" text={preparation} />
+              {cooking && <Text title="Temps de cuisson :" text={cooking} />}
+              {rest && <Text title="Temps de repos :" text={rest} />}
+              <Text title="Nombre de portion :" text={portions} />
+            </RecipeInformations>
+            <RecipeInformations>
+              <Text title="Ingrédients :" />
+              <RecipeUl>
+                {ingredients?.map((ingredient, index) => {
+                  return <RecipeLi key={index}>{ingredient}</RecipeLi>;
+                })}
+              </RecipeUl>
+            </RecipeInformations>
+          </RecipeInformationsContainer>
         </RecipeInformationsWrapper>
         <RecipeStepsTitle>Instructions :</RecipeStepsTitle>
         {steps?.map((step, index) => {
           return (
-            <p key={index}>
+            <RecipeSteps key={index}>
               {step}
               <br />
-            </p>
+            </RecipeSteps>
           );
         })}
       </CardRecipeWrapper>

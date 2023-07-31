@@ -10,11 +10,15 @@ import {
 export const CardRecipeStyled = styled.section`
   border: 1px solid ${secondaryColor};
   border-radius: ${borderRadiusLarge};
-  margin-top: 64px;
+  margin: 64px 0;
 `;
 
 export const CardRecipeWrapper = styled.article`
   margin: 40px 88px;
+
+  @media (max-width: 1000px) {
+    margin: 40px 24px;
+  }
 `;
 
 export const RecipeHeader = styled.div`
@@ -22,6 +26,11 @@ export const RecipeHeader = styled.div`
   align-items: baseline;
   justify-content: space-between;
   margin-bottom: 40px;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const RecipeTitle = styled.h3`
@@ -34,11 +43,45 @@ export const RecipeImage = styled.img`
   height: ${pictureSizeLarge};
   object-fit: cover;
   margin: 0px 32px 32px 0px;
+
+  @media (max-width: 1000px) {
+    margin: 0 0 32px 0px;
+  }
+
+  @media (max-width: 500px) {
+    width: -webkit-fill-available;
+  }
 `;
 
 export const RecipeInformationsWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+
+  @media (max-width: 1300px) {
+    justify-content: space-between;
+  }
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+`;
+
+export const RecipeInformationsContainer = styled.div`
+  display: flex;
+  gap: 48px;
+
+  @media (max-width: 1300px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 1000px) {
+    flex-direction: row;
+  }
+
+  @media (max-width: 668px) {
+    flex-direction: column;
+  }
 `;
 
 export const RecipeInformations = styled.div`
@@ -58,8 +101,15 @@ export const RecipeUl = styled.ul`
 export const RecipeLi = styled.li`
   margin-bottom: 8px;
   list-style: none;
+  font-size: 1.1rem;
 `;
 
 export const RecipeStepsTitle = styled.h4`
   font-size: ${fontSizeSmall};
+  text-align: justify;
+`;
+
+export const RecipeSteps = styled.p`
+  text-align: justify;
+  font-size: 1.1rem;
 `;

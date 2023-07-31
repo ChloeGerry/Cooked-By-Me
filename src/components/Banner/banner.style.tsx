@@ -6,8 +6,6 @@ export const BannerStyled = styled.img`
   border-radius: ${borderRadiusLarge};
   width: 100%;
   object-fit: cover;
-  margin: auto;
-  display: flex;
 
   @media (max-width: 768px) {
     max-height: 150px;

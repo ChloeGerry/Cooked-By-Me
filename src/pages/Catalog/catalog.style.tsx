@@ -30,6 +30,10 @@ const slide = keyframes`
   }
 `;
 
+export const CatalogMain = styled.main`
+  margin: 0 16px;
+`;
+
 export const CatalogSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -61,11 +65,11 @@ export const Input = styled.input`
 export const CatalogWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 64px 32px;
+  margin: 64px 0;
   align-items: center;
   gap: 32px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 `;
 
 export const CardWrapper = styled.article`
@@ -92,6 +96,7 @@ export const PaginationWrapper = styled.nav`
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+  align-items: center;
 `;
 
 export const Pagination = styled(NavLink)`

@@ -1,10 +1,14 @@
 import Banner from '../../components/Banner';
-import { HomeSection, HomeParagraph } from './home.style';
+import { HomeMain, HomeSection, HomeParagraph } from './home.style';
 import { LinkStyled } from '../../components/ButtonLink/buttonLink.style';
 
 const Home = () => {
+  const handleScrollToTop = (): void => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <main>
+    <HomeMain>
       <Banner />
       <HomeSection>
         <h2>Créez simplement vos menus</h2>
@@ -24,7 +28,9 @@ const Home = () => {
         <HomeParagraph>
           Recettes salées, sucrées, rapides ou plus élaborées.
         </HomeParagraph>
-        <LinkStyled to="/catalog">Catalogue</LinkStyled>
+        <LinkStyled onClick={handleScrollToTop} to="/catalog">
+          Catalogue
+        </LinkStyled>
       </HomeSection>
       <HomeSection>
         <h2>Créez votre template</h2>
@@ -32,9 +38,11 @@ const Home = () => {
         <HomeParagraph>
           Téléchargez-le afin de l'avoir toujours avec vous.
         </HomeParagraph>
-        <LinkStyled to="/planner">Template</LinkStyled>
+        <LinkStyled onClick={handleScrollToTop} to="/planner">
+          Template
+        </LinkStyled>
       </HomeSection>
-    </main>
+    </HomeMain>
   );
 };
 

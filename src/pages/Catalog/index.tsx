@@ -1,4 +1,5 @@
 import {
+  CatalogMain,
   CatalogSection,
   InputWrapper,
   Label,
@@ -65,7 +66,7 @@ const Catalog = () => {
   totalPages = Math.ceil(displayRecipes!.length / recipePerPage);
 
   return (
-    <main>
+    <CatalogMain>
       <Banner />
       <CatalogSection>
         <InputWrapper>
@@ -118,7 +119,7 @@ const Catalog = () => {
           })}
         </PaginationWrapper>
       </CatalogSection>
-    </main>
+    </CatalogMain>
   );
 };
 

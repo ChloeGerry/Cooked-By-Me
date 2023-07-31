@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { fontSizeSmall } from '../../style/variables';
 
+export const HomeMain = styled.main`
+  margin: 0 16px;
+`;
+
 export const HomeSection = styled.section`
   display: flex;
   flex-direction: column;

@@ -13,7 +13,7 @@ export const TemplateStyled = styled.section`
   border: 1px solid ${secondaryColor};
   border-radius: 15px;
   padding-bottom: 16px;
-  margin: 40px;
+  margin: 24px;
 `;
 
 export const TemplateTitle = styled.h2`

@@ -6,6 +6,7 @@ import { useState, useEffect, useContext } from 'react';
 import { RecipesContext, RecipeContextType } from '../../context';
 import { imagesPath } from '../Planner';
 import Loader from '../../components/layouts/Loader';
+import { RecipeMain } from './recipe.style';
 
 type recipeId = {
   id: string;
@@ -35,7 +36,7 @@ const Recipe = () => {
   }
 
   return (
-    <main>
+    <RecipeMain>
       <Banner />
       {filteredRecipe?.map(
         ({
@@ -67,7 +68,7 @@ const Recipe = () => {
           );
         }
       )}
-    </main>
+    </RecipeMain>
   );
 };
 

@@ -14,4 +14,5 @@ export const TextTitle = styled.h4`
 export const TextParagraph = styled.p`
   padding-left: 8px;
   margin: 0;
+  font-size: 1.1rem;
 `;

@@ -7,6 +7,7 @@ export const CardPlannerWrapper = styled.div`
   border: 1px solid ${tertiaryColor};
   border-radius: ${borderRadiusSmall};
   width: 200px;
+  height: 215px;
 `;
 
 export const LinkStyled = styled(Link)`

@@ -4,7 +4,7 @@ import { pictureSizeSmall } from '../../../style/variables';
 export const HeaderStyled = styled.header`
   display: flex;
   justify-content: flex-start;
-  margin: 32px 0px 32px 32px;
+  margin: 32px 0px 32px 16px;
 
   @media (max-width: 768px) {
     justify-content: center;
