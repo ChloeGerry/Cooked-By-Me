@@ -70,16 +70,18 @@ export const RecipeInformationsWrapper = styled.div`
 export const RecipeInformationsContainer = styled.div`
   display: flex;
   gap: 48px;
+  width: 54%;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1350px) {
     flex-direction: column;
   }
 
   @media (max-width: 1000px) {
     flex-direction: row;
+    width: 100%;
   }
 
-  @media (max-width: 668px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
@@ -89,6 +91,10 @@ export const RecipeInformations = styled.div`
   flex: 1;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 1000px) {
+    align-items: center;
+  }
 `;
 
 export const RecipeUl = styled.ul`

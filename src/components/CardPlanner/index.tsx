@@ -2,6 +2,7 @@ import {
   CardPlannerImage,
   CardPlannerWrapper,
   LinkStyled,
+  CardPlannerIcon,
 } from './cardPlanner.style';
 
 interface Props {
@@ -17,6 +18,7 @@ const CardPlanner = ({ title, image, id }: Props) => {
         <h3>{title}</h3>
         <CardPlannerImage src={image} alt="Recette" />
       </LinkStyled>
+      <CardPlannerIcon className="fa-regular fa-trash-can"></CardPlannerIcon>
     </CardPlannerWrapper>
   );
 };

@@ -67,9 +67,9 @@ export const CatalogWrapper = styled.div`
   flex-direction: row;
   margin: 64px 0;
   align-items: center;
-  gap: 32px;
+  gap: 48px;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 `;
 
 export const CardWrapper = styled.article`
