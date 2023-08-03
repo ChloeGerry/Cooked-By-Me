@@ -739,6 +739,170 @@
         ],
         "rate": 5,
         "type": "salty"
+      },
+      {
+        "title": "Brioche",
+        "id": 29,
+        "image": "brioche.jpg",
+        "preparation": "35min",
+        "portions": "6 parts",
+        "rest": "3h",
+        "cooking": "25min",
+        "ingredients": [
+          "320g de farine blanche (T45 à T70)",
+          "60g de sirop d'agave",
+          "1 sachet de levure de boulanger",
+          "60g d'huile",
+          "150ml de lait",
+          "sel",
+          "pépites de chocolat, fruits secs (optionnel)"
+        ],
+        "steps": [
+          "Réhydratez la levure en la mélangeant avec le sirop d'agave et le lait tiède mais pas chaude (attention à ne pas tuer la levure). Si vous utilisez de la levure fraîche émiettez la également dans l'eau avec le sirop. Laissez reposer 15 minutes.",
+          "Mélangez la farine et le sel. Faites un puit et versez-y le mélange avec la levure ainsi que l'huile. Pétrissez jusqu'à obtenir une pâte élastique et homogène.",
+          "Faites une boule avec la pâte, déposez dans un grand bol, couvrez et laissez reposer dans un endroit sec et chaud de votre maison pendant au minimum 2h30.",
+          "Dégazez la pâte. Farinez juste le plan de travail si nécessaire, puis séparez la pâte en 3. Roulez chaque pâton entre vos mains pour faire 3 boudins épais que vous poserez sur le plan de travail.",
+          "Lissez les boudins avec les mains s'ils ont des imperfections. Scellez les boudins d'un côté, faites une natte en évitant de tirer sur les boudins puis scellez l'extrémité. Laissez la natte sur la plaque ou mettez la dans un moule rectangulaire.",
+          "Laissez pousser à nouveau à couvert dans un endroit sec et chaud de la maison pendant 30 minutes à 1h le temps de redémarrer la pousse. Entre temps préchauffez le four à 180°C sur le mode convection naturelle (four traditionnel).",
+          "Mettez une dorure végétale faites par exemple d'un mélange de sirop d'agave et de yaourt de soja (ou lait de soja ou eau). Enfournez pendant environ 25 minutes pour la version avec l'huile.",
+          "Laissez refroidir sur une grille avant de couper et de déguster. La brioche étant sans oeuf ni beurre, n'hésitez pas à la congeler en tranches si vous comptez la déguster le lendemain ou les jours suivants afin d'éviter quelle ne sèche."
+        ],
+        "rate": 5,
+        "type": "sweet"
+      },
+      {
+        "title": "Velouté Butternut & Lentilles Corail",
+        "id": 30,
+        "image": "butternut-soup.jpg",
+        "preparation": "10min",
+        "portions": "4",
+        "cooking": "35min",
+        "ingredients": [
+          "1kg de Butternut",
+          "200g de Lentilles Corail",
+          "1,25 litres d'Eau",
+          "15cl de Lait de Coco ou autre Crème Végétale",
+          "1 Cube de Bouillon de Légumes",
+          "2 càs de Curry en poudre",
+          "Sel & Poivre"
+        ],
+        "steps": [
+          "Vider et couper le butternut en morceaux. Rincer les lentilles corail dans une passoire. Placer le tout dans une grande casserole. Verser l'eau, ajouter le cube de bouillon de légumes, le curry et le lait de coco",
+          "Porter à ébullition et faire cuire 25 minutes à feu moyen. Mixer à l'aide d'un mixeur plongeant jusqu'à obtenir un velouté bien lisse, goûter pour ajuster l'assaisonnement. On peut ajouter un peu plus d'eau en fonction de la texture souhaitée.",
+          "Servir bien chaud avec un filet de lait de coco et des graines au choix..."
+        ],
+        "rate": 5,
+        "type": "salty"
+      },
+      {
+        "title": "Pains au lait",
+        "id": 31,
+        "image": "milk-bread.jpg",
+        "preparation": "30min",
+        "portions": "4",
+        "rest": "2h30",
+        "cooking": "15min",
+        "ingredients": [
+          "100ml de lait",
+          "1 sachet de levure de boulanger",
+          "250g de farine",
+          "50g de sucre",
+          "1 œuf",
+          "45g de margarine végétale",
+          "1 jaune d’œuf + 1 cuillère à soupe de lait (optionnel)"
+        ],
+        "steps": [
+          "Faites tiédir le lait d’amande au micro-ondes.",
+          "Dans un récipient, versez la levure de boulanger et ajoutez le lait tiède. Laissez poser 10 minutes.",
+          "Ajoutez ensuite la farine, le sucre et 1 œuf battu, puis commencez le pétrissage.",
+          "Lorsque la pâte commence à se former, incorporez la margarine végétale, et continuez de pétrir environ 8 minutes, jusqu’à obtention d’une pâte souple et bien lisse.",
+          "Formez une boule, placez-la dans le récipient et recouvrez d’un linge propre.",
+          "Laissez pousser 2 heures à l’abri des courants d’air, la pâte doit avoir doublé de volume.",
+          "Dégazez la pâte, divisez en 6 portions égales, et formez des petites boules.",
+          "À l’aide d’un rouleau à pâtisserie, étalez chaque boule afin d’obtenir un rectangle. Rabattez l’extrémité du haut au centre de la pâte, et l’extrémité du bas par dessus. Pincez les bords du bout de vos doigts afin de bien souder la pâte.",
+          "Déposez les pains au lait sur la plaque de votre four recouverte de papier cuisson, et couvrez d’un linge propre et laissez pousser 45 minutes à 1 heure supplémentaire. Ils doivent avoir bien gonflé.",
+          "Préchauffez le four à 180 degrés.",
+          "Mélangez le jaune d’œuf et 1 cuillère à soupe de lait végétal, badigeonnez les pains au lait au pinceau, et incisez-les à l’aide d’une paire de ciseaux. Enfournez 15 minutes.",
+          "Laissez refroidir sur une grille."
+        ],
+        "rate": 5,
+        "type": "sweet"
+      },
+      {
+        "title": "Nouilles sautées aux légumes",
+        "id": 32,
+        "image": "vegetables-noodles.jpg",
+        "preparation": "10min",
+        "portions": "2",
+        "cooking": "25min",
+        "ingredients": [
+          "200g de Nouilles de Riz ou Capellini",
+          "200g de Tofu Ferme (ou à la Japonaise de Taifun)",
+          "2 gousses d'Ail",
+          "1 Carotte",
+          "1/2 Poireau",
+          "1 poignée de Noix de Cajou",
+          "Jus d'1/2 Citron",
+          "Huile Neutre ou d'Olive",
+          "5 càs d'Eau",
+          "4 càs de Sauce Soja Sucrée",
+          "1/2 càs de Maizena",
+          "1/2 càs d'Huile de Sésame grillé",
+          "1 càc de Sauce Sriracha"
+        ],
+        "steps": [
+          "Mélanger tous les ingrédients pour la sauce, réserver.",
+          "Peler et tailler la carotte en julienne. Émincer le poireau, peler et couper l'ail en fines tranches.",
+          "Dans une poêle à feu moyen doux, faire dorer les gousses d'ail dans un filet d'huile en faisant attention de ne pas les bruler car elles deviennent vite amères, réserver dans un récipient.",
+          "Dans la même poêle à feu moyen, rajouter un bon filet d'huile, faire revenir le poireau jusqu'à ce qu'il caramélise. Ajouter le tofu grossièrement émietté, les carottes, les noix de cajou, saler et poivrer généreusement. Poursuivre la cuisson jusqu'à ce que le tofu dore légèrement. Pendant ce temps, cuire les nouilles asiatiques ou cappellini selon les instructions du paquet.",
+          "Quand les pâtes sont presque prêtes, verser la sauce dans la poêlée qui se trouve toujours à feu moyen, mélanger. Logiquement elle épaissira rapidement. Égoutter les pâtes, si besoin les couper l'aide d'un ciseau (ça aidera à les incorporer plus facilement) et transférer directement dans la poêle, ajouter l'ail doré et remuer quelques minutes. Terminer par arroser de jus de citron et goûter pour ajuster l'assaisonnement.",
+          "Laissez pousser 2 heures à l’abri des courants d’air, la pâte doit avoir doublé de volume.",
+          "Servir et décorer avec des graines de sésame dorées, de la coriandre et un filet de jus de citron supplémentaire."
+        ],
+        "rate": 5,
+        "type": "salty"
+      },
+      {
+        "title": "Cinnamon rools au chocolat",
+        "id": 33,
+        "image": "cinnamon-rolls.jpg",
+        "preparation": "35min",
+        "portions": "12 à 16 roulés",
+        "cooking": "1h30min",
+        "ingredients": [
+          "200 mL de lait de soja tiède",
+          "50 g de sucre",
+          "1 sachet de levure boulangère",
+          "400 g de farine",
+          "1 grosse pincée de sel",
+          "50 g de margarine fondue",
+          "60 g de sucre (garniture)",
+          "50 g de margarine (garniture)",
+          "1 c. à café de cannelle (garniture)",
+          "20 g de cacao en poudre non sucré (garniture)",
+          "100 g de chocolat noir (glaçage)",
+          "200 g de crème végétale (glaçage)",
+          "1 pincée de cannelle (glaçage)",
+          "des pépites de chocolat (glaçage)"
+        ],
+        "steps": [
+          "Dans un saladier (ou dans le bol de votre robot mélangeur), mélangez le lait tiède, le sucre et la levure et laissez cette dernière s'activer (quand la surface est bien mousseuse).",
+          "Dans un grand bol à part, mélangez la farine et le sel.",
+          "Quand la levure est activée, ajoutez la margarine puis versez la farine par-dessus le tout. Mélangez d'abord à la fourchette, puis transvasez sur un plan de travail propre pour pétrir.",
+          "Essayer de ne pas ajouter de farine, à moins que la pâte ne colle vraiment. Pétrissez une dizaine de minutes, jusqu'à ce que la pâte soit rebondie.",
+          "Une fois qu'elle est prête, formez une boule, déposez la pâte dans un saladier légèrement huilé. Couvrez d'un torchon humide et laissez monter la pâte à brioche dans un endroit chaud pendant au moins 1 heure, ou jusqu'à ce qu'elle ait doublé de volume.",
+          "Pendant ce temps, préparez la garniture : dans un bol, mélangez tous les ingrédients à la fourchette. Réservez au frigo.",
+          "Préparez aussi vos moules : vous pouvez faire des petits roulés individuels, pour cela il vous faudra une plaque de four couverte de papier cuisson. Pour des roulés classiques collés les uns aux autres, huilez le ou les moules que vous comptez utiliser.",
+          "Une fois la pâte levée, transvasez-la sur un plan de travail fariné ou un silpat. Etalez la pâte pour lui donner une forme rectangulaire (le mien fait environ 40cm sur 50cm). Le bord le plus long doit vous faire face.",
+          "Etalez la garniture sur toute la surface du rectangle en omettant 2 centimètres le long du bord face à vous. Aidez-vous d'une spatule ou d'un couteau à bout rond. Ajoutez des pépites de chocolat sur toute la surface (autant ou aussi peu que vous voulez).",
+          "Vous pouvez maintenant commencer à rouler la brioche : retroussez le bord qui se trouve le plus loin de vous en le ramenant vers vous, petit à petit, jusqu'à la bande vide de 2 centimètres. J'y étale un peu d'eau directement avec mes doigts pour finir de rouler et sceller mon rouleau brioché.",
+          "Maintenant que votre pâte est un gros rouleau, divisez-le (en 12 pour de gros roulés, en 16 pour de plus petits) - pour plus de facilité, j'utilise du fil alimentaire.",
+          "Placez les roulés dans vos moules préparés, en les espaçant pour leur laisser la place de gonfler. Couvrez d'un torchon humide et laissez monter 30 minutes - ATTENTION, ne les laissez pas trop monter ! Ils ne seront pas bons si vous les oubliez pendant 2 heures.",
+          "Il ne vous reste plus qu'à les cuire dans un four préchauffé à 180°C environ 15 minutes, ou jusqu'à ce que le dessus des rolls soit doré.",
+          "Une fois cuits, sortis du four et tiédis, vous pouvez préparez le glaçage. Coupez le chocolat en morceaux et versez-le dans un bol. Faites chauffer la crème végétale, et au moment où elle commence à bouillir, versez-la sur le chocolat. Laissez 5 minutes avant d'ajouter la cannelle et de bien mélanger pour obtenir votre sauce. Je vous conseille d'en verser sur votre cinnamon roll juste avant de le manger, et de conserver la sauce au frigo - réchauffez-la avant usage."
+        ],
+        "rate": 4,
+        "type": "sweet"
       }
     ]
 }
