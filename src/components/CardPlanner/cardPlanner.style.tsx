@@ -11,8 +11,13 @@ export const LinkStyled = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 200px;
   height: 215px;
+`;
+
+export const CardPlannerTitle = styled.h3`
+  text-align: center;
 `;
 
 export const CardPlannerImage = styled.img`
@@ -21,9 +26,13 @@ export const CardPlannerImage = styled.img`
   height: 125px;
 `;
 
-export const CardPlannerIcon = styled.i`
+export const CardPlannerIconWrapper = styled.span`
   display: flex;
   justify-content: end;
   padding: 0 8px 8px 0;
+`;
+
+export const CardPlannerIcon = styled.i`
+  cursor: pointer;
   font-size: 24px;
 `;

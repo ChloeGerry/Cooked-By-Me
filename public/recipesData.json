@@ -771,7 +771,7 @@
         "type": "sweet"
       },
       {
-        "title": "Velouté Butternut & Lentilles Corail",
+        "title": "Velouté de Butternut",
         "id": 30,
         "image": "butternut-soup.jpg",
         "preparation": "10min",
@@ -829,7 +829,7 @@
         "type": "sweet"
       },
       {
-        "title": "Nouilles sautées aux légumes",
+        "title": "Nouilles sautées végé",
         "id": 32,
         "image": "vegetables-noodles.jpg",
         "preparation": "10min",
@@ -863,7 +863,7 @@
         "type": "salty"
       },
       {
-        "title": "Cinnamon rools au chocolat",
+        "title": "Cinnamon rols au chocolat",
         "id": 33,
         "image": "cinnamon-rolls.jpg",
         "preparation": "35min",

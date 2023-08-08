@@ -38,52 +38,30 @@ export const imagesPath: string = `${process.env.PUBLIC_URL}/assets/`;
 
 Modal.setAppElement('#root');
 
+type Moment = 'midi' | 'soir';
 interface WeekPlanner {
-  [key: string]: object;
+  day: string;
+  moment: Moment;
+  recipe: RecipeType;
 }
 
 const Planner = () => {
-  const [week, setWeek] = useState<WeekPlanner>({
-    Lundi: {
-      midi: null,
-      soir: null,
-    },
-    Mardi: {
-      midi: null,
-      soir: null,
-    },
-    Mercredi: {
-      midi: null,
-      soir: null,
-    },
-    Jeudi: {
-      midi: null,
-      soir: null,
-    },
-    Vendredi: {
-      midi: null,
-      soir: null,
-    },
-    Samedi: {
-      midi: null,
-      soir: null,
-    },
-    Dimanche: {
-      midi: null,
-      soir: null,
-    },
-  });
-
-  const [choosenDay, setChoosenDay] = useState<string>('');
-  const [choosenMoment, setChoosenMoment] = useState<string>('');
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [filteredRecipes, updateFilteredRecipes] = useState<Array<RecipeType>>(
     []
   );
   const recipePerPage: number = 5;
   let totalPages: number = 0;
+
+  const storageRecipes =
+    JSON.parse(localStorage.getItem('choosenRecipe')!) || [];
+
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [choosenRecipe, setChoosenRecipe] = useState<Array<RecipeType>>([]);
+  const [choosenRecipes, setChoosenRecipes] =
+    useState<Array<WeekPlanner>>(storageRecipes);
+  const [choosenMoment, setChoosenMoment] = useState<Moment>();
+  const [choosenDay, setChoosenDay] = useState<string>('');
+
   const { recipesData } = useContext<RecipeContextType>(RecipesContext);
 
   if (!recipesData) {
@@ -110,50 +88,104 @@ const Planner = () => {
     ? filteredRecipes
     : recipes;
 
-  const slidedFilteredRecipes: Array<RecipeType> | undefined =
-    displayRecipes?.slice(
-      (currentPage - 1) * recipePerPage,
-      currentPage * recipePerPage
-    );
-
-  const slidedRecipes: Array<RecipeType> | undefined = displayRecipes?.slice(
+  const slicedRecipes: Array<RecipeType> | undefined = displayRecipes?.slice(
     (currentPage - 1) * recipePerPage,
     currentPage * recipePerPage
   );
 
   totalPages = Math.ceil(displayRecipes!.length / recipePerPage);
 
-  const addMealToPlanner = (id: number) => {
-    slidedRecipes.forEach((slidedRecipe: RecipeType): void => {
+  const updateChoosenRecipesState = (id: number): void => {
+    slicedRecipes.forEach((slidedRecipe: RecipeType): void => {
       if (slidedRecipe.id === id) {
+        const newRecipe = slicedRecipes.find((recipe) => recipe.id === id)!;
+        setChoosenRecipes([
+          ...choosenRecipes,
+          {
+            day: choosenDay,
+            moment: choosenMoment!,
+            recipe: newRecipe,
+          },
+        ]);
+
         setModalIsOpen(false);
-        setChoosenRecipe([...choosenRecipe, slidedRecipe]);
-        // localStorage.setItem('newRecipe', JSON.stringify(slidedRecipe));
-        // console.log(
-        //   'localStorageRecipe',
-        //   JSON.parse(localStorage.getItem('newRecipe')!)
-        // );
       }
     });
-
-    // setChoosenRecipe([]);
-    // Object.keys(week).forEach((day) => {
-    //   if (day === choosenDay) {
-    //     console.log('choosenMoment', choosenMoment);
-    //     if (choosenMoment === 'Déjeuner') {
-    //       setWeek({
-    //         week[day]: {
-    //           midi: id,
-    //           soir: null,
-    //         },
-    //       });
-    //     }
-    // }
-    // });
   };
 
-  // console.log('choosenDay', choosenDay);
-  // console.log('choosenMoment', choosenMoment);
+  const addMealToPlanner = (id: number): void => {
+    if (choosenRecipes.length > 0) {
+      const allFilteredChoosenRecipes: Array<WeekPlanner> = [];
+      const filteredChoosenRecipesByDay: WeekPlanner = choosenRecipes.find(
+        (recipe: WeekPlanner) => recipe.day === choosenDay
+      );
+
+      if (
+        filteredChoosenRecipesByDay &&
+        !allFilteredChoosenRecipes.includes(filteredChoosenRecipesByDay)
+      ) {
+        allFilteredChoosenRecipes.push(filteredChoosenRecipesByDay);
+      }
+
+      if (allFilteredChoosenRecipes.length > 0) {
+        allFilteredChoosenRecipes.forEach((choosenRecipe) => {
+          if (
+            choosenRecipe.moment === choosenMoment &&
+            choosenRecipe.recipe.id === id
+          ) {
+            setModalIsOpen(false);
+          } else {
+            updateChoosenRecipesState(id);
+          }
+        });
+      } else {
+        updateChoosenRecipesState(id);
+      }
+    } else {
+      slicedRecipes.forEach((slidedRecipe: RecipeType): void => {
+        if (slidedRecipe.id === id) {
+          updateChoosenRecipesState(id);
+        }
+      });
+    }
+  };
+
+  if (choosenRecipes.length > 0) {
+    localStorage.setItem('choosenRecipe', JSON.stringify(choosenRecipes));
+  }
+
+  const deleteMealFromPlanner = (id: number, day: string): void => {
+    const allFilteredChoosenRecipes: Array<WeekPlanner> = [];
+    const filteredChoosenRecipesByDay: WeekPlanner = choosenRecipes.find(
+      (recipe: WeekPlanner) => recipe.day === day
+    );
+
+    if (
+      filteredChoosenRecipesByDay &&
+      !allFilteredChoosenRecipes.includes(filteredChoosenRecipesByDay)
+    ) {
+      allFilteredChoosenRecipes.push(filteredChoosenRecipesByDay);
+    }
+
+    allFilteredChoosenRecipes.forEach((filteredChoosenRecipe) => {
+      if (filteredChoosenRecipe.recipe.id === id) {
+        const itemToDelete: WeekPlanner = filteredChoosenRecipe;
+        for (let i = 0; i < storageRecipes.length; i++) {
+          if (itemToDelete.recipe.id === storageRecipes[i].recipe.id) {
+            storageRecipes.splice([i], 1);
+            localStorage.setItem(
+              'choosenRecipe',
+              JSON.stringify(storageRecipes)
+            );
+            console.log(
+              'setChoosenRecipes(storageRecipes)',
+              setChoosenRecipes(storageRecipes)
+            );
+          }
+        }
+      }
+    });
+  };
 
   return (
     <>
@@ -172,39 +204,22 @@ const Planner = () => {
               <Input onChange={handleInput} type="search" />
             </InputWrapper>
             <CatalogWrapper id="cardRecipe">
-              {filteredRecipes.length
-                ? slidedFilteredRecipes?.map(({ title, id, image }) => {
-                    return (
-                      <CardWrapper key={id}>
-                        <CardPreview
-                          id={id}
-                          title={title}
-                          image={imagesPath + image}
-                        />
-                        <ButtonWrapper>
-                          <Button onClick={() => addMealToPlanner(id)}>
-                            Sélectionnez ce plat
-                          </Button>
-                        </ButtonWrapper>
-                      </CardWrapper>
-                    );
-                  })
-                : slidedRecipes?.map(({ title, id, image }) => {
-                    return (
-                      <CardWrapper key={id}>
-                        <CardPreview
-                          id={id}
-                          title={title}
-                          image={imagesPath + image}
-                        />
-                        <ButtonWrapper>
-                          <Button onClick={() => addMealToPlanner(id)}>
-                            Sélectionnez ce plat
-                          </Button>
-                        </ButtonWrapper>
-                      </CardWrapper>
-                    );
-                  })}
+              {slicedRecipes?.map(({ title, id, image }) => {
+                return (
+                  <CardWrapper key={id}>
+                    <CardPreview
+                      id={id}
+                      title={title}
+                      image={imagesPath + image}
+                    />
+                    <ButtonWrapper>
+                      <Button onClick={() => addMealToPlanner(id)}>
+                        Sélectionnez ce plat
+                      </Button>
+                    </ButtonWrapper>
+                  </CardWrapper>
+                );
+              })}
             </CatalogWrapper>
             <PaginationWrapper>
               {[...Array(totalPages)].map((_, index) => {
@@ -233,25 +248,33 @@ const Planner = () => {
                   <Button
                     onClick={() => {
                       setChoosenDay(day);
-                      setChoosenMoment('Déjeuner');
-                      return setModalIsOpen(true);
+                      setChoosenMoment('midi');
+                      setModalIsOpen(true);
                     }}
                   >
                     Choisissez votre plat
                   </Button>
                   <ChoosenRecipeWrapper>
-                    {choosenRecipe.length
-                      ? choosenRecipe?.map(({ id, title, image }) => {
-                          return (
+                    {choosenRecipes.length > 0 &&
+                      choosenRecipes.map((choosenRecipe) => {
+                        return (
+                          day === choosenRecipe.day &&
+                          choosenRecipe.moment === 'midi' && (
                             <CardPlanner
-                              key={id}
-                              id={id}
-                              title={title}
-                              image={imagesPath + image}
+                              key={choosenRecipe.recipe.id}
+                              id={choosenRecipe.recipe.id}
+                              title={choosenRecipe.recipe.title}
+                              image={imagesPath + choosenRecipe.recipe.image}
+                              onClick={() =>
+                                deleteMealFromPlanner(
+                                  choosenRecipe.recipe.id,
+                                  day
+                                )
+                              }
                             />
-                          );
-                        })
-                      : null}
+                          )
+                        );
+                      })}
                   </ChoosenRecipeWrapper>
                 </TemplateRecipeWrapper>
                 <TemplateRecipeWrapper $hideBorder={true}>
@@ -259,25 +282,33 @@ const Planner = () => {
                   <Button
                     onClick={() => {
                       setChoosenDay(day);
-                      setChoosenMoment('Dîner');
-                      return setModalIsOpen(true);
+                      setChoosenMoment('soir');
+                      setModalIsOpen(true);
                     }}
                   >
                     Choisissez votre plat
                   </Button>
                   <ChoosenRecipeWrapper>
-                    {choosenRecipe.length
-                      ? choosenRecipe?.map(({ id, title, image }) => {
-                          return (
+                    {choosenRecipes.length > 0 &&
+                      choosenRecipes.map((choosenRecipe) => {
+                        return (
+                          day === choosenRecipe.day &&
+                          choosenRecipe.moment === 'soir' && (
                             <CardPlanner
-                              key={id}
-                              id={id}
-                              title={title}
-                              image={imagesPath + image}
+                              key={choosenRecipe.recipe.id}
+                              id={choosenRecipe.recipe.id}
+                              title={choosenRecipe.recipe.title}
+                              image={imagesPath + choosenRecipe.recipe.image}
+                              onClick={() =>
+                                deleteMealFromPlanner(
+                                  choosenRecipe.recipe.id,
+                                  day
+                                )
+                              }
                             />
-                          );
-                        })
-                      : null}
+                          )
+                        );
+                      })}
                   </ChoosenRecipeWrapper>
                 </TemplateRecipeWrapper>
               </TemplateCard>

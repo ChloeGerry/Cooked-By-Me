@@ -2,6 +2,8 @@ import {
   CardPlannerImage,
   CardPlannerWrapper,
   LinkStyled,
+  CardPlannerTitle,
+  CardPlannerIconWrapper,
   CardPlannerIcon,
 } from './cardPlanner.style';
 
@@ -9,16 +11,23 @@ interface Props {
   title: string;
   image: string;
   id: number;
+  onClick: Function;
 }
 
-const CardPlanner = ({ title, image, id }: Props) => {
+const CardPlanner = ({ title, image, id, onClick }: Props) => {
   return (
     <CardPlannerWrapper>
       <LinkStyled to={`/recipe/${id}/${title}`}>
-        <h3>{title}</h3>
+        <CardPlannerTitle>{title}</CardPlannerTitle>
         <CardPlannerImage src={image} alt="Recette" />
       </LinkStyled>
-      <CardPlannerIcon className="fa-regular fa-trash-can"></CardPlannerIcon>
+      <CardPlannerIconWrapper>
+        <CardPlannerIcon
+          onClick={onClick}
+          // onClick={() => {}}
+          className="fa-regular fa-trash-can"
+        ></CardPlannerIcon>
+      </CardPlannerIconWrapper>
     </CardPlannerWrapper>
   );
 };

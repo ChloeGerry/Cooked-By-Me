@@ -101,7 +101,7 @@ export const PaginationWrapper = styled.nav`
 
 export const Pagination = styled(NavLink)`
   font-size: ${fontSizeSmall};
-  padding: 6px 12px;
+  padding: 5px 11px;
 
   &.isSelected {
     background-color: ${tertiaryColor};
