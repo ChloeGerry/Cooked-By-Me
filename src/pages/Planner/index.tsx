@@ -21,6 +21,7 @@ import {
   IconWrapper,
   ButtonWrapper,
   ChoosenRecipeWrapper,
+  DeleteButtonWrapper,
 } from './planner.style';
 import Button from '../../components/Button';
 import { DAYS } from '../../components/Template';
@@ -116,9 +117,8 @@ const Planner = () => {
   const addMealToPlanner = (id: number): void => {
     if (choosenRecipes.length > 0) {
       const allFilteredChoosenRecipes: Array<WeekPlanner> = [];
-      const filteredChoosenRecipesByDay: WeekPlanner = choosenRecipes.find(
-        (recipe: WeekPlanner) => recipe.day === choosenDay
-      );
+      const filteredChoosenRecipesByDay: WeekPlanner | undefined =
+        choosenRecipes.find((recipe: WeekPlanner) => recipe.day === choosenDay);
 
       if (
         filteredChoosenRecipesByDay &&
@@ -156,9 +156,8 @@ const Planner = () => {
 
   const deleteMealFromPlanner = (id: number, day: string): void => {
     const allFilteredChoosenRecipes: Array<WeekPlanner> = [];
-    const filteredChoosenRecipesByDay: WeekPlanner = choosenRecipes.find(
-      (recipe: WeekPlanner) => recipe.day === day
-    );
+    const filteredChoosenRecipesByDay: WeekPlanner | undefined =
+      choosenRecipes.find((recipe: WeekPlanner) => recipe.day === day);
 
     if (
       filteredChoosenRecipesByDay &&
@@ -177,14 +176,17 @@ const Planner = () => {
               'choosenRecipe',
               JSON.stringify(storageRecipes)
             );
-            console.log(
-              'setChoosenRecipes(storageRecipes)',
-              setChoosenRecipes(storageRecipes)
-            );
+            setChoosenRecipes(storageRecipes);
           }
         }
       }
     });
+  };
+
+  const deleteAllMealFromPlanner = (): void => {
+    storageRecipes.length = 0;
+    localStorage.setItem('choosenRecipe', JSON.stringify(storageRecipes));
+    setChoosenRecipes(storageRecipes);
   };
 
   return (
@@ -314,6 +316,11 @@ const Planner = () => {
               </TemplateCard>
             ))}
           </TemplateWraper>
+          <DeleteButtonWrapper>
+            <Button onClick={() => deleteAllMealFromPlanner()}>
+              Supprimer toutes les recettes
+            </Button>
+          </DeleteButtonWrapper>
         </TemplateStyled>
       </main>
     </>

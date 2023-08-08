@@ -33,3 +33,7 @@ export const ChoosenRecipeWrapper = styled.div`
   justify-content: center;
   margin-top: 8px;
 `;
+
+export const DeleteButtonWrapper = styled.div`
+  text-align: center;
+`;

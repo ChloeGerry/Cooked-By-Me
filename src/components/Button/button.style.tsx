@@ -12,7 +12,7 @@ export const ButtonWrapper = styled.button`
   color: ${primaryColor};
   padding: 4px 8px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   transition: box-shadow 200ms ease-in-out;
 
   &:hover {

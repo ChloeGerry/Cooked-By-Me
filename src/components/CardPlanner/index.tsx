@@ -11,7 +11,7 @@ interface Props {
   title: string;
   image: string;
   id: number;
-  onClick: Function;
+  onClick: () => void;
 }
 
 const CardPlanner = ({ title, image, id, onClick }: Props) => {
@@ -24,7 +24,6 @@ const CardPlanner = ({ title, image, id, onClick }: Props) => {
       <CardPlannerIconWrapper>
         <CardPlannerIcon
           onClick={onClick}
-          // onClick={() => {}}
           className="fa-regular fa-trash-can"
         ></CardPlannerIcon>
       </CardPlannerIconWrapper>

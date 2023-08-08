@@ -34,6 +34,7 @@ export const TemplateCard = styled.article`
   border-radius: ${borderRadiusSmall};
   padding: 0px 16px;
   margin-bottom: 32px;
+  height: fit-content;
 `;
 
 export const TemplateRecipeWrapper = styled.div<TemplateRecipeWrapperProps>`
