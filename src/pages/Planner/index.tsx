@@ -154,39 +154,32 @@ const Planner = () => {
     localStorage.setItem('choosenRecipe', JSON.stringify(choosenRecipes));
   }
 
-  const deleteMealFromPlanner = (id: number, day: string): void => {
-    const allFilteredChoosenRecipes: Array<WeekPlanner> = [];
-    const filteredChoosenRecipesByDay: WeekPlanner | undefined =
-      choosenRecipes.find((recipe: WeekPlanner) => recipe.day === day);
+  const deleteMealFromPlanner = (
+    id: number,
+    day: string,
+    moment: 'midi' | 'soir'
+  ): void => {
+    const filteredChoosenRecipesByDay: WeekPlanner = choosenRecipes.find(
+      (choosenRecipe: WeekPlanner) =>
+        choosenRecipe.day === day &&
+        choosenRecipe.moment === moment &&
+        choosenRecipe.recipe.id === id
+    )!;
 
-    if (
-      filteredChoosenRecipesByDay &&
-      !allFilteredChoosenRecipes.includes(filteredChoosenRecipesByDay)
-    ) {
-      allFilteredChoosenRecipes.push(filteredChoosenRecipesByDay);
-    }
-
-    allFilteredChoosenRecipes.forEach((filteredChoosenRecipe) => {
-      if (filteredChoosenRecipe.recipe.id === id) {
-        const itemToDelete: WeekPlanner = filteredChoosenRecipe;
-        for (let i = 0; i < storageRecipes.length; i++) {
-          if (itemToDelete.recipe.id === storageRecipes[i].recipe.id) {
-            storageRecipes.splice([i], 1);
-            localStorage.setItem(
-              'choosenRecipe',
-              JSON.stringify(storageRecipes)
-            );
-            setChoosenRecipes(storageRecipes);
-          }
-        }
+    for (let i = 0; i < choosenRecipes.length; i++) {
+      if (
+        filteredChoosenRecipesByDay.recipe.id === choosenRecipes[i].recipe.id
+      ) {
+        choosenRecipes.splice(i, 1);
+        setChoosenRecipes([...choosenRecipes]);
+        localStorage.setItem('choosenRecipe', JSON.stringify(choosenRecipes));
       }
-    });
+    }
   };
 
   const deleteAllMealFromPlanner = (): void => {
-    storageRecipes.length = 0;
-    localStorage.setItem('choosenRecipe', JSON.stringify(storageRecipes));
-    setChoosenRecipes(storageRecipes);
+    setChoosenRecipes([]);
+    localStorage.setItem('choosenRecipe', JSON.stringify(choosenRecipes));
   };
 
   return (
@@ -270,7 +263,8 @@ const Planner = () => {
                               onClick={() =>
                                 deleteMealFromPlanner(
                                   choosenRecipe.recipe.id,
-                                  day
+                                  day,
+                                  'midi'
                                 )
                               }
                             />
@@ -304,7 +298,8 @@ const Planner = () => {
                               onClick={() =>
                                 deleteMealFromPlanner(
                                   choosenRecipe.recipe.id,
-                                  day
+                                  day,
+                                  'soir'
                                 )
                               }
                             />
