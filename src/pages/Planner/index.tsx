@@ -197,8 +197,7 @@ const Planner = () => {
             <InputWrapper>
               <Label htmlFor="recipe">Trouvez vos plats :</Label>
               <Input
-                onInput={handleInput}
-                // onChange={handleInput}
+                onChange={handleInput}
                 type="search"
                 id="recipe"
                 name="recipe"

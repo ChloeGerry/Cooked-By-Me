@@ -72,7 +72,7 @@ export const CardWrapper = styled.article`
   flex-direction: column;
   border: 1px solid ${secondaryColor};
   border-radius: ${borderRadiusMedium};
-  /* animation: ${slide} 0.3s ease; */
+  animation: ${slide} 0.3s ease;
   transition: box-shadow 200ms ease-in-out;
 
   &:hover {

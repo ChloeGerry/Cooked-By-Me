@@ -30,7 +30,7 @@ const Recipe = () => {
     if (choosenRecipe?.length) {
       setFilteredRecipe(choosenRecipe);
     }
-  }, [recipeId.id, recipes]);
+  }, [recipeId.id, recipes, recipesData]);
 
   if (!recipesData) {
     return <Loader />;
