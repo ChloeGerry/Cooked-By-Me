@@ -7,10 +7,9 @@ import {
   CatalogWrapper,
   PaginationWrapper,
   Pagination,
-} from '../Catalog/catalog.style';
+} from '../../components/RecipesCatalog/recipesCatalog.style';
 import React, { useState, useContext } from 'react';
 import CardPreview from '../../components/CardPreview';
-// import Template from '../../components/Template';
 import Modal from 'react-modal';
 import { RecipesContext, RecipeContextType } from '../../context';
 import Loader from '../../components/layouts/Loader';
@@ -178,6 +177,7 @@ const Planner = () => {
   };
 
   const deleteAllMealFromPlanner = (): void => {
+    choosenRecipes.length = 0;
     setChoosenRecipes([]);
     localStorage.setItem('choosenRecipe', JSON.stringify(choosenRecipes));
   };
@@ -195,8 +195,13 @@ const Planner = () => {
           </IconWrapper>
           <CatalogSection>
             <InputWrapper>
-              <Label>Trouvez vos plats :</Label>
-              <Input onChange={handleInput} type="search" />
+              <Label htmlFor="recipe">Trouvez vos plats :</Label>
+              <Input
+                onChange={handleInput}
+                type="search"
+                id="recipe"
+                name="recipe"
+              />
             </InputWrapper>
             <CatalogWrapper id="cardRecipe">
               {slicedRecipes?.map(({ title, id, image }) => {
