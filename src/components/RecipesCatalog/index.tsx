@@ -25,6 +25,7 @@ const RecipesCatalog = () => {
   let totalPages: number = 0;
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { recipesData } = useContext<RecipeContextType>(RecipesContext);
+  const [target, setTarget] = useState<HTMLInputElement>();
 
   if (!recipesData) {
     return <Loader />;
@@ -33,7 +34,8 @@ const RecipesCatalog = () => {
   const recipes: Array<RecipeType> | undefined = recipesData?.recipes;
 
   const handleInput = (event: React.FormEvent<HTMLInputElement>): void => {
-    const target = event.target as HTMLInputElement;
+    const eventElement = event.target as HTMLInputElement;
+    setTarget(eventElement);
     updateFilteredRecipes([]);
     setCurrentPage(1);
     if (target) {
@@ -44,6 +46,17 @@ const RecipesCatalog = () => {
         updateFilteredRecipes(matchingRecipes);
       }
     }
+    // const target = event.target as HTMLInputElement;
+    // updateFilteredRecipes([]);
+    // setCurrentPage(1);
+    // if (target) {
+    //   const matchingRecipes: Array<RecipeType> | undefined = recipes?.filter(
+    //     (recipe) => recipe.title.toLowerCase().match(target.value)
+    //   );
+    //   if (matchingRecipes?.length && target.value) {
+    //     updateFilteredRecipes(matchingRecipes);
+    //   }
+    // }
   };
 
   const displayRecipes: RecipeType[] | undefined = filteredRecipes?.length
