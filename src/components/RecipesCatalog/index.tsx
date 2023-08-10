@@ -38,11 +38,11 @@ const RecipesCatalog = () => {
     setTarget(eventElement);
     updateFilteredRecipes([]);
     setCurrentPage(1);
-    if (target) {
+    if (eventElement) {
       const matchingRecipes: Array<RecipeType> | undefined = recipes?.filter(
-        (recipe) => recipe.title.toLowerCase().match(target.value)
+        (recipe) => recipe.title.toLowerCase().match(eventElement.value)
       );
-      if (matchingRecipes?.length && target.value) {
+      if (matchingRecipes?.length && eventElement.value) {
         updateFilteredRecipes(matchingRecipes);
       }
     }
