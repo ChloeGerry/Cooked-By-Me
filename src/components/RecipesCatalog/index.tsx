@@ -50,8 +50,16 @@ const RecipesCatalog = () => {
     event: React.TouchEvent<HTMLInputElement>
   ): void => {
     const eventElement = event.target as HTMLInputElement;
-    const value = eventElement.value;
-    handleInput(value);
+    updateFilteredRecipes([]);
+    setCurrentPage(1);
+    if (eventElement) {
+      const matchingRecipes: Array<RecipeType> | undefined = recipes?.filter(
+        (recipe) => recipe.title.toLowerCase().match(eventElement.value)
+      );
+      if (matchingRecipes?.length && eventElement.value) {
+        updateFilteredRecipes(matchingRecipes);
+      }
+    }
   };
 
   const displayRecipes: RecipeType[] | undefined = filteredRecipes?.length
