@@ -25,7 +25,6 @@ const RecipesCatalog = () => {
   let totalPages: number = 0;
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { recipesData } = useContext<RecipeContextType>(RecipesContext);
-  const [target, setTarget] = useState<HTMLInputElement>();
 
   if (!recipesData) {
     return <Loader />;
@@ -35,7 +34,6 @@ const RecipesCatalog = () => {
 
   const handleInput = (event: React.FormEvent<HTMLInputElement>): void => {
     const eventElement = event.target as HTMLInputElement;
-    setTarget(eventElement);
     updateFilteredRecipes([]);
     setCurrentPage(1);
     if (eventElement) {
@@ -46,17 +44,6 @@ const RecipesCatalog = () => {
         updateFilteredRecipes(matchingRecipes);
       }
     }
-    // const target = event.target as HTMLInputElement;
-    // updateFilteredRecipes([]);
-    // setCurrentPage(1);
-    // if (target) {
-    //   const matchingRecipes: Array<RecipeType> | undefined = recipes?.filter(
-    //     (recipe) => recipe.title.toLowerCase().match(target.value)
-    //   );
-    //   if (matchingRecipes?.length && target.value) {
-    //     updateFilteredRecipes(matchingRecipes);
-    //   }
-    // }
   };
 
   const displayRecipes: RecipeType[] | undefined = filteredRecipes?.length
@@ -74,7 +61,7 @@ const RecipesCatalog = () => {
     <CatalogSection>
       <InputWrapper>
         <Label htmlFor="recipe">Trouvez vos plats :</Label>
-        <Input onChange={handleInput} type="search" id="recipe" name="recipe" />
+        <Input onKeyUp={handleInput} type="search" id="recipe" name="recipe" />
       </InputWrapper>
       <CatalogWrapper id="cardRecipe">
         {slicedRecipes?.map(({ title, id, image, rate }) => {
