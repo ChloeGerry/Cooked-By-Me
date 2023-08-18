@@ -46,6 +46,14 @@ const RecipesCatalog = () => {
     }
   };
 
+  const handleTouchInput = (
+    event: React.TouchEvent<HTMLInputElement>
+  ): void => {
+    const eventElement = event.target as HTMLInputElement;
+    const value = eventElement.value;
+    handleInput(value);
+  };
+
   const displayRecipes: RecipeType[] | undefined = filteredRecipes?.length
     ? filteredRecipes
     : recipes;
@@ -61,7 +69,14 @@ const RecipesCatalog = () => {
     <CatalogSection>
       <InputWrapper>
         <Label htmlFor="recipe">Trouvez vos plats :</Label>
-        <Input onKeyUp={handleInput} type="search" id="recipe" name="recipe" />
+        <Input
+          onChange={handleInput}
+          onTouchStart={handleTouchInput}
+          onTouchEnd={handleTouchInput}
+          type="search"
+          id="recipe"
+          name="recipe"
+        />
       </InputWrapper>
       <CatalogWrapper id="cardRecipe">
         {slicedRecipes?.map(({ title, id, image, rate }) => {
