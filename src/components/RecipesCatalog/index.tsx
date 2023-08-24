@@ -32,39 +32,19 @@ const RecipesCatalog = () => {
 
   const recipes: Array<RecipeType> | undefined = recipesData?.recipes;
 
-  const handleInput = (
-    event:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.FormEvent<HTMLInputElement>
-  ): void => {
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const eventElement = event.currentTarget.value;
     updateFilteredRecipes([]);
     setCurrentPage(1);
     if (eventElement) {
       const matchingRecipes: Array<RecipeType> | undefined = recipes?.filter(
-        (recipe) => recipe.title.toLowerCase().match(eventElement)
+        (recipe) => recipe.title.toLowerCase().match(eventElement.toLowerCase())
       );
       if (matchingRecipes?.length && eventElement) {
         updateFilteredRecipes(matchingRecipes);
       }
     }
   };
-
-  // const handleTouchInput = (
-  //   event: React.TouchEvent<HTMLInputElement>
-  // ): void => {
-  //   const eventElement = event.target as HTMLInputElement;
-  //   updateFilteredRecipes([]);
-  //   setCurrentPage(1);
-  //   if (eventElement) {
-  //     const matchingRecipes: Array<RecipeType> | undefined = recipes?.filter(
-  //       (recipe) => recipe.title.toLowerCase().match(eventElement.value)
-  //     );
-  //     if (matchingRecipes?.length && eventElement.value) {
-  //       updateFilteredRecipes(matchingRecipes);
-  //     }
-  //   }
-  // };
 
   const displayRecipes: RecipeType[] | undefined = filteredRecipes?.length
     ? filteredRecipes
@@ -81,7 +61,7 @@ const RecipesCatalog = () => {
     <CatalogSection>
       <InputWrapper>
         <Label htmlFor="recipe">Trouvez vos plats :</Label>
-        <Input onInput={handleInput} type="search" id="recipe" name="recipe" />
+        <Input onChange={handleInput} type="search" id="recipe" />
       </InputWrapper>
       <CatalogWrapper id="cardRecipe">
         {slicedRecipes?.map(({ title, id, image, rate }) => {

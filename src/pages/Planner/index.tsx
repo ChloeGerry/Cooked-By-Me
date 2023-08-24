@@ -70,15 +70,15 @@ const Planner = () => {
 
   const recipes: Array<RecipeType> | undefined = recipesData?.recipes;
 
-  const handleInput = (event: React.FormEvent<HTMLInputElement>): void => {
-    const target = event.target as HTMLInputElement;
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const target = event.currentTarget.value;
     updateFilteredRecipes([]);
     setCurrentPage(1);
     if (target) {
       const matchingRecipes: Array<RecipeType> | undefined = recipes?.filter(
-        (recipe) => recipe.title.toLowerCase().match(target.value)
+        (recipe) => recipe.title.toLowerCase().match(target.toLowerCase())
       );
-      if (matchingRecipes?.length && target.value) {
+      if (matchingRecipes?.length && target) {
         updateFilteredRecipes(matchingRecipes);
       }
     }
