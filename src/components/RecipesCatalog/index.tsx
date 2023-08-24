@@ -32,7 +32,11 @@ const RecipesCatalog = () => {
 
   const recipes: Array<RecipeType> | undefined = recipesData?.recipes;
 
-  const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleInput = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.FormEvent<HTMLInputElement>
+  ): void => {
     const eventElement = event.currentTarget.value;
     updateFilteredRecipes([]);
     setCurrentPage(1);
@@ -77,14 +81,7 @@ const RecipesCatalog = () => {
     <CatalogSection>
       <InputWrapper>
         <Label htmlFor="recipe">Trouvez vos plats :</Label>
-        <Input
-          onChange={handleInput}
-          // onTouchStart={handleTouchInput}
-          // onTouchEnd={handleTouchInput}
-          type="search"
-          id="recipe"
-          name="recipe"
-        />
+        <Input onInput={handleInput} type="search" id="recipe" name="recipe" />
       </InputWrapper>
       <CatalogWrapper id="cardRecipe">
         {slicedRecipes?.map(({ title, id, image, rate }) => {
