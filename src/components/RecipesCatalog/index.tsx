@@ -32,35 +32,35 @@ const RecipesCatalog = () => {
 
   const recipes: Array<RecipeType> | undefined = recipesData?.recipes;
 
-  const handleInput = (event: React.FormEvent<HTMLInputElement>): void => {
-    const eventElement = event.target as HTMLInputElement;
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const eventElement = event.currentTarget.value;
     updateFilteredRecipes([]);
     setCurrentPage(1);
     if (eventElement) {
       const matchingRecipes: Array<RecipeType> | undefined = recipes?.filter(
-        (recipe) => recipe.title.toLowerCase().match(eventElement.value)
+        (recipe) => recipe.title.toLowerCase().match(eventElement)
       );
-      if (matchingRecipes?.length && eventElement.value) {
+      if (matchingRecipes?.length && eventElement) {
         updateFilteredRecipes(matchingRecipes);
       }
     }
   };
 
-  const handleTouchInput = (
-    event: React.TouchEvent<HTMLInputElement>
-  ): void => {
-    const eventElement = event.target as HTMLInputElement;
-    updateFilteredRecipes([]);
-    setCurrentPage(1);
-    if (eventElement) {
-      const matchingRecipes: Array<RecipeType> | undefined = recipes?.filter(
-        (recipe) => recipe.title.toLowerCase().match(eventElement.value)
-      );
-      if (matchingRecipes?.length && eventElement.value) {
-        updateFilteredRecipes(matchingRecipes);
-      }
-    }
-  };
+  // const handleTouchInput = (
+  //   event: React.TouchEvent<HTMLInputElement>
+  // ): void => {
+  //   const eventElement = event.target as HTMLInputElement;
+  //   updateFilteredRecipes([]);
+  //   setCurrentPage(1);
+  //   if (eventElement) {
+  //     const matchingRecipes: Array<RecipeType> | undefined = recipes?.filter(
+  //       (recipe) => recipe.title.toLowerCase().match(eventElement.value)
+  //     );
+  //     if (matchingRecipes?.length && eventElement.value) {
+  //       updateFilteredRecipes(matchingRecipes);
+  //     }
+  //   }
+  // };
 
   const displayRecipes: RecipeType[] | undefined = filteredRecipes?.length
     ? filteredRecipes
@@ -79,8 +79,8 @@ const RecipesCatalog = () => {
         <Label htmlFor="recipe">Trouvez vos plats :</Label>
         <Input
           onChange={handleInput}
-          onTouchStart={handleTouchInput}
-          onTouchEnd={handleTouchInput}
+          // onTouchStart={handleTouchInput}
+          // onTouchEnd={handleTouchInput}
           type="search"
           id="recipe"
           name="recipe"
