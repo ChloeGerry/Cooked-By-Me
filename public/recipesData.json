@@ -1259,6 +1259,32 @@
         ],
         "rate": 5,
         "type": "salty"
+      },
+      {
+        "title": "Bowl cake",
+        "id": 45,
+        "image": "bowl-cake.png",
+        "preparation": "5min",
+        "portions": "1 personne",
+        "cooking": "3min",
+        "ingredients": [
+          "40g de flocons d'avoine",
+          "2 càs de protéines en poudre",
+          "1 càc de levure",
+          "1 oeuf",
+          "1 càs de yaourt",
+          "100ml d'eau",
+          "2 carrés de chocolat"
+        ],
+        "steps": [
+          "Dans un bol, versez les flocons d'avoine, la protéine en poudre et la levure puis mélangez.",
+          "Ajoutez l'oeuf, le yaourt et l'eau puis mélangez.",
+          "Placez les carrés de chocolat au centre ou coupez les en morceaux et ajoutez-les au mélange.",
+          "Faites cuire 3min au micro-ondes.",
+          "Ajoutez les toppings de votre choix et dégustez"
+        ],
+        "rate": 5,
+        "type": "sweet"
       }
     ]
 }
